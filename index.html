@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>reveal.js</title>
+		<title>Delaunay Refinement Algorithms</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/white.css">
@@ -19,11 +19,13 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-		<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+		<script src="lib/deployggb.js"></script>
 		<script>
-    var applet1 = new GGBApplet({material_id: "D7XYwPfW", borderColor:"#fff"}, true);
-    var applet2 = new GGBApplet({filename: "ggb/1-circumcenter-to-smallest-edge-raio.ggb"}, true);
-		var applet3 = new GGBApplet({filename: "delaunay-refinement-presentation/ggb/ruppert-proof-new-vertices-inside-mesh.ggb"}, true);
+    var applet1 = new GGBApplet({material_id: "D7XYwPfW", borderColor:"#fff", width: 960, height: 600}, true);
+		var applet2 = new GGBApplet({material_id: "NS2jCyfX", borderColor:"#fff", width: 960, height: 600}, true);
+		var applet3 = new GGBApplet({material_id: "fTUzuQZh", borderColor:"#fff", width: 960, height: 600}, true);
+
+
     window.addEventListener("load", function() {
         applet1.inject('applet_container1');
         applet2.inject('applet_container2');
@@ -32,10 +34,9 @@
     });
 	</script>
 	<style>
-		.ggb{
+		.ggb1{
 			width: 2288px;
 			height: 1237px;
-			background-color: red;
 		}
 	</style>
 	</head>
@@ -50,6 +51,14 @@
 				<section>
 					<h4>Obere Schranke B -online</h4>
     			<div class="ggb" id="applet_container1"></div>
+				</section>
+				<section>
+					<h4>Obere Schranke B -online</h4>
+    			<div class="ggb" id="applet_container2"></div>
+				</section>
+				<section>
+					<h4>Obere Schranke B -online</h4>
+    			<div class="ggb" id="applet_container3"></div>
 				</section>
 			</div>
 		</div>

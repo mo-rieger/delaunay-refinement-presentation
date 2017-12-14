@@ -1793,7 +1793,7 @@
 		if( dom.wrapper && !isPrintingPDF() ) {
 
 			var size = getComputedSlideSize();
-
+			
 			// Layout the contents of the slides
 			layoutSlideContents( config.width, config.height );
 
