@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+		<script>
+    var applet1 = new GGBApplet({material_id: "D7XYwPfW", borderColor:"#fff"}, true);
+    var applet2 = new GGBApplet({filename: "ggb/1-circumcenter-to-smallest-edge-raio.ggb"}, true);
+		var applet3 = new GGBApplet({filename: "delaunay-refinement-presentation/ggb/ruppert-proof-new-vertices-inside-mesh.ggb"}, true);
+    window.addEventListener("load", function() {
+        applet1.inject('applet_container1');
+        applet2.inject('applet_container2');
+				applet3.inject('applet_container3');
+
+    });
+	</script>
+	<style>
+		.ggb{
+			width: 2288px;
+			height: 1237px;
+			background-color: red;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Delaunay Refinement</h1>
+					Christian Weber, Moritz Rieger
+					Hagen, 23.02.2018
+				</section>
+				<section>
+					<h4>Obere Schranke B -online</h4>
+    			<div class="ggb" id="applet_container1"></div>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
