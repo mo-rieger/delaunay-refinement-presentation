@@ -20,28 +20,7 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 		<script src="lib/deployggb.js"></script>
-		<script>
-		/**
-		To display your ggbMaterial on a slide just drop the ID of it in the Array below and make sure there is a div with the same id inside a slide.
-		Algebra view of the material should be disabled, this option is only available in geogebra classic app.
-		You have to fiddle you construction in ggb that it fits into the given frame, because ther is no option in the api to make the content fit a given size..Sorry.
-		**/
-		ggbMaterial = [
-			'D7XYwPfW',
-			'NS2jCyfX',
-			'fTUzuQZh',
-			'ndJWMvZK',
-			'a7zr7JDf']
-		ggbApps = ggbMaterial.map((matId) => {
-			return new GGBApplet({material_id: matId, borderColor:"#fff", width: 960, height: 600}, true);
-		})
 
-    window.addEventListener("load", function() {
-			ggbApps.forEach((app, i) => {
-				app.inject(ggbMaterial[i]);
-			})
-    });
-	</script>
 	<style>
 		.ggb1{
 			width: 2288px;
@@ -57,8 +36,29 @@
 					Christian Weber, Moritz Rieger <br>
 					Hagen, 23.02.2018
 				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## If you like .md
+
+						more than html just write markdown [link](http://hakim.se).
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						# Index
+						 - What is Delaunay?
+						 - Why we need it?
+						 - Basics
+						 - ruppert
+						 - Chew
+					</textarea>
+				</section>
 				<section>
-					<h4>Obere Schranke B -online</h4>
+					<h1>Latex with <a href="https://www.mathjax.org/">MathJax</a></h1>
+					When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+				</section>
+				<section>
+					<h4>Umkreisradius durch kürzeste Kante</h4>
     			<div class="ggb" id="D7XYwPfW"></div>
 				</section>
 				<section>
@@ -69,7 +69,7 @@
 				<section>
 					<h4>local feature size</h4>
 					kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält
-    			<div class="ggb" id="fTUzuQZh"></div>
+    			<div class="ggb" id="Jbf6D8ax"></div>
 				</section>
 				<section>
 					<h4>Ruppert Termination Proof</h4>
@@ -80,6 +80,16 @@
 					<h4>Ruppert Termination Proof</h4>
 					segment vertex because of rejected parent vertex
     			<div class="ggb" id="a7zr7JDf"></div>
+				</section>
+				<section>
+					<h4>Ruppert Termination Proof Segment Vertex</h4>
+					p und v auf inzidenten Kanten 45° < a < 90°
+    			<div class="ggb" id="z5VVcUMA"></div>
+				</section>
+				<section>
+					<h4>Ruppert Termination Proof Free Vertex</h4>
+					rv >= B*rp
+    			<div class="ggb" id="QFJFVSXu"></div>
 				</section>
 			</div>
 		</div>
@@ -92,7 +102,12 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+					math: {
+						mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+						config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+					},
 				dependencies: [
+					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
@@ -100,5 +115,31 @@
 				]
 			});
 		</script>
+		<script>
+		/**
+		To display your ggbMaterial on a slide just drop the ID of it in the Array below and make sure there is a div with the same id inside a slide.
+		You can find the MaterialId in the URL, its the last part of it.
+		Algebra view of the material should be disabled, this option is only available in geogebra classic app.
+		You have to fiddle the size and position of your construction inside ggb and save it back to the cloud that it fits into the given frame, because there is no option in the api to make the content fit a given size..Sorry.
+		**/
+		ggbMaterial = [
+			'D7XYwPfW',
+			'NS2jCyfX',
+			'Jbf6D8ax',
+			'ndJWMvZK',
+			'a7zr7JDf',
+			'z5VVcUMA',
+			'QFJFVSXu'
+		]
+		ggbApps = ggbMaterial.map((matId) => {
+			return new GGBApplet({material_id: matId, borderColor:"#fff", width: 960, height: 600}, true);
+		})
+
+    Reveal.addEventListener("ready", function() {
+			ggbApps.forEach((app, i) => {
+				app.inject(ggbMaterial[i]);
+			})
+    });
+	</script>
 	</body>
 </html>
