@@ -21,16 +21,25 @@
 		</script>
 		<script src="lib/deployggb.js"></script>
 		<script>
-    var applet1 = new GGBApplet({material_id: "D7XYwPfW", borderColor:"#fff", width: 960, height: 600}, true);
-		var applet2 = new GGBApplet({material_id: "NS2jCyfX", borderColor:"#fff", width: 960, height: 600}, true);
-		var applet3 = new GGBApplet({material_id: "fTUzuQZh", borderColor:"#fff", width: 960, height: 600}, true);
-
+		/**
+		To display your ggbMaterial on a slide just drop the ID of it in the Array below and make sure there is a div with the same id inside a slide.
+		Algebra view of the material should be disabled, this option is only available in geogebra classic app.
+		You have to fiddle you construction in ggb that it fits into the given frame, because ther is no option in the api to make the content fit a given size..Sorry.
+		**/
+		ggbMaterial = [
+			'D7XYwPfW',
+			'NS2jCyfX',
+			'fTUzuQZh',
+			'ndJWMvZK',
+			'a7zr7JDf']
+		ggbApps = ggbMaterial.map((matId) => {
+			return new GGBApplet({material_id: matId, borderColor:"#fff", width: 960, height: 600}, true);
+		})
 
     window.addEventListener("load", function() {
-        applet1.inject('applet_container1');
-        applet2.inject('applet_container2');
-				applet3.inject('applet_container3');
-
+			ggbApps.forEach((app, i) => {
+				app.inject(ggbMaterial[i]);
+			})
     });
 	</script>
 	<style>
@@ -45,20 +54,32 @@
 			<div class="slides">
 				<section>
 					<h1>Delaunay Refinement</h1>
-					Christian Weber, Moritz Rieger
+					Christian Weber, Moritz Rieger <br>
 					Hagen, 23.02.2018
 				</section>
 				<section>
 					<h4>Obere Schranke B -online</h4>
-    			<div class="ggb" id="applet_container1"></div>
+    			<div class="ggb" id="D7XYwPfW"></div>
 				</section>
 				<section>
-					<h4>Obere Schranke B -online</h4>
-    			<div class="ggb" id="applet_container2"></div>
+					<h4>Proof</h4>
+					Neue Knoten liegen immer innerhalb des Graphen.
+    			<div class="ggb" id="NS2jCyfX"></div>
 				</section>
 				<section>
-					<h4>Obere Schranke B -online</h4>
-    			<div class="ggb" id="applet_container3"></div>
+					<h4>local feature size</h4>
+					kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält
+    			<div class="ggb" id="fTUzuQZh"></div>
+				</section>
+				<section>
+					<h4>Ruppert Termination Proof</h4>
+					segment vertex case input parent vertex
+    			<div class="ggb" id="ndJWMvZK"></div>
+				</section>
+				<section>
+					<h4>Ruppert Termination Proof</h4>
+					segment vertex because of rejected parent vertex
+    			<div class="ggb" id="a7zr7JDf"></div>
 				</section>
 			</div>
 		</div>
