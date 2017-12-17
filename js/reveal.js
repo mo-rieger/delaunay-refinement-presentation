@@ -1793,21 +1793,19 @@
 		if( dom.wrapper && !isPrintingPDF() ) {
 
 			var size = getComputedSlideSize();
-			
+
 			// Layout the contents of the slides
 			layoutSlideContents( config.width, config.height );
 
 			dom.slides.style.width = size.width + 'px';
 			dom.slides.style.height = size.height + 'px';
-			/** Sorry we do not need scaling bro
 			// Determine scale of content to fit within available space
 			scale = Math.min( size.presentationWidth / size.width, size.presentationHeight / size.height );
 
 			// Respect max/min scale settings
 			scale = Math.max( scale, config.minScale );
 			scale = Math.min( scale, config.maxScale );
-			**/
-			scale = 1;
+
 			// Don't apply any scaling styles if scale is 1
 			if( scale === 1 ) {
 				dom.slides.style.zoom = '';
