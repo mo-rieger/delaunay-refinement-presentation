@@ -19,7 +19,15 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-		<script src="lib/deployggb.js"></script>
+		<script src="lib/js/deployggb.js"></script>
+		<!-- Geometry Graph Delaunay Stuff -->
+		<script src="lib/js/jquery-1.11.2.min.js"></script>
+		<script src="lib/js/jcanvas.min.js"></script>
+		<script src="lib/js/queue.min.js"></script>
+		<script src="js/geometry.js"></script>
+		<script src="js/graph.js"></script>
+		<script src="js/triangulate.js"></script>
+		<script src="js/models/ty.js"></script>
 
 	<style>
 		.ggb1{
@@ -91,6 +99,9 @@
 					rv >= B*rp
     			<div class="ggb" id="QFJFVSXu"></div>
 				</section>
+				<section id="ty" data-state="ty">
+					<canvas class="center-block" width="900" height="800"></canvas>
+				</section>
 			</div>
 		</div>
 
@@ -144,11 +155,9 @@
 
 			ggbApps.forEach((app, i) => {
 				app.inject(ggbMaterial[i]);
-				console.log(app);
-				//app.resize()
-				//app.refreshHitPoints()
 			})
     });
 	</script>
+	<script src="js/triangulations.js"></script>
 	</body>
 </html>
