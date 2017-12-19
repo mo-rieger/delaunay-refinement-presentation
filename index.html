@@ -28,56 +28,101 @@
 		<script src="js/graph.js"></script>
 		<script src="js/triangulate.js"></script>
 		<script src="js/models/ty.js"></script>
-
-	<style>
-		.ggb1{
-			width: 2288px;
-			height: 1237px;
-		}
-	</style>
+		<style>
+			.ggb{
+				display: inline-block;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<h1>Delaunay Refinement</h1>
-					Christian Weber, Moritz Rieger <br>
-					Hagen, 23.02.2018
-				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## If you like .md
+						# Delaunay Refinement
 
-						more than html just write markdown [link](http://hakim.se).
+						Christian Weber, Moritz Rieger
+
+
+						Hagen, 23.02.2018
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						# Index
-						 - What is Delaunay?
-						 - Why we need it?
-						 - Basics
-						 - ruppert
-						 - Chew
+						# Inhalt
+						 - Was ist ein Delaunay Graph?
+						 - Wofür braucht man gute Delaunay Graphen?
+						 - Ruppert's Algorithmus
+						 - Chews Zweiter Algorithmus
+						 - Ausblick
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						# Grundbegriffe
 					</textarea>
 				</section>
 				<section>
-					<h1>Latex with <a href="https://www.mathjax.org/">MathJax</a></h1>
-					When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+					<h2>Encroached Subsegments</h2>
+					<div class="ggb" id="NS2jCyfX"></div>
 				</section>
 				<section>
-					<h4>Umkreisradius durch kürzeste Kante</h4>
-    			<div class="ggb" id="D7XYwPfW"></div>
+					<h2>Skinny Triangles</h2>
+					<p>Umkreisradius durch kürzeste Kante<p>
+					<div class="ggb" id="D7XYwPfW"></div>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Ruppert's Algorithmus
+
+						1. teile encroached subsegments
+						2. entferne skinny triangles
+					</textarea>
 				</section>
 				<section>
-					<h4>Proof</h4>
-					Neue Knoten liegen immer innerhalb des Graphen.
-    			<div class="ggb" id="NS2jCyfX"></div>
+					<h2>Welche Rolle spielt die Reihenfolge?</h2>
+					Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen
 				</section>
 				<section>
-					<h4>local feature size</h4>
+					<h3>Terminierung</h3>
+					Entfernen von Skinny Triangles kann zu neuen skinny triangles führen.
+					Wir wollen zeigen, dass es eine untere Schranke der Kantenlänge gibt.
+				</section>
+				<!--simply write LaTeX with  https://www.mathjax.org/-->
+				<section>
+					<h3>Beschränkungen</h3>
+					<ul>
+						<li>untere Schranke \( B = \sqrt{2}\)</li>
+						<li>kleinster Winkel \( \alpha \le 60 \)°</li>
+					</ul>
+					<img src="assets/img/ruppert/rup-flowchart.png">
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### weitere Definitionen
+						- local feature size
+						- insertion radius
+						- parent vertex
+					</textarea>
+				</section>
+				<section>
+					<h2>local feature size</h2>
 					kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält
     			<div class="ggb" id="Jbf6D8ax"></div>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## insertion radius
+
+						abhängig von der Art des Knotens:
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## parent vertices
+
+						beschreiben Herkunft eines Knotens
+					</textarea>
 				</section>
 				<section>
 					<h4>Ruppert Termination Proof</h4>
@@ -96,7 +141,7 @@
 				</section>
 				<section>
 					<h4>Ruppert Termination Proof Free Vertex</h4>
-					rv >= B*rp
+						<p>\(r_v \le B*r_p\)</p>
     			<div class="ggb" id="QFJFVSXu"></div>
 				</section>
 				<section id="ty" data-state="ty">

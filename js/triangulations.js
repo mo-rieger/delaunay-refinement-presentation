@@ -1,4 +1,6 @@
-var canvas = $('#ty canvas');
+thankyou();
+function thankyou(){
+  var canvas = $('#ty canvas');
   var vertices = Graph.fitVerticesInto(ty.vertices, 900, 800);
   var edges = ty.edges.slice();
   var vertices2 = vertices.slice();
@@ -127,3 +129,4 @@ Reveal.addEventListener( 'ty', function() {
       ++l;
     }, 50);
 }, false );
+}
