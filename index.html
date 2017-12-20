@@ -51,11 +51,37 @@
 					<textarea data-template>
 						# Inhalt
 						 - Was ist ein Delaunay Graph?
-						 - Wofür braucht man gute Delaunay Graphen?
+						 - Wofür braucht man Delaunay Graphen?
 						 - Ruppert's Algorithmus
 						 - Chews Zweiter Algorithmus
 						 - Ausblick
 					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wofür braucht man Delaunay Graphen?
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## 3D Mesh Generation
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Global Illumination
+					</textarea>
+				</section>
+				<section>
+					<h3>Face tracking</h3>
+					<!-- TODO better find another video or host it offline -->
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h3>Und weil es einfach cool ist!</h3>
+					<!-- http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs -->
+					<img src="http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif">
+					<p>Quelle: hendrixnash.co.uk<p>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -64,7 +90,7 @@
 				</section>
 				<section>
 					<h2>Encroached Subsegments</h2>
-					<div class="ggb" id="NS2jCyfX"></div>
+					<div class="ggb" id="hmZj5mRS"></div>
 				</section>
 				<section>
 					<h2>Skinny Triangles</h2>
@@ -81,7 +107,8 @@
 				</section>
 				<section>
 					<h2>Welche Rolle spielt die Reihenfolge?</h2>
-					Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen
+					<p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
+					<div class="ggb" id="NS2jCyfX"></div>
 				</section>
 				<section>
 					<h3>Terminierung</h3>
@@ -91,10 +118,12 @@
 				<!--simply write LaTeX with  https://www.mathjax.org/-->
 				<section>
 					<h3>Beschränkungen</h3>
-					<ul>
-						<li>untere Schranke \( B = \sqrt{2}\)</li>
-						<li>kleinster Winkel \( \alpha \le 60 \)°</li>
-					</ul>
+					<p>
+						<ul>
+							<li>untere Schranke \( B = \sqrt{2}\)</li>
+							<li>kleinster Winkel \( \alpha \le 60 \)°</li>
+						</ul>
+					</p>
 					<img src="assets/img/ruppert/rup-flowchart.png">
 				</section>
 				<section data-markdown>
@@ -107,7 +136,7 @@
 				</section>
 				<section>
 					<h2>local feature size</h2>
-					kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält
+					<p>kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
     			<div class="ggb" id="Jbf6D8ax"></div>
 				</section>
 				<section data-markdown>
@@ -126,17 +155,17 @@
 				</section>
 				<section>
 					<h4>Ruppert Termination Proof</h4>
-					segment vertex case input parent vertex
+					<p>segment vertex case input parent vertex</p>
     			<div class="ggb" id="ndJWMvZK"></div>
 				</section>
 				<section>
 					<h4>Ruppert Termination Proof</h4>
-					segment vertex because of rejected parent vertex
+					<p>segment vertex because of rejected parent vertex</p>
     			<div class="ggb" id="a7zr7JDf"></div>
 				</section>
 				<section>
 					<h4>Ruppert Termination Proof Segment Vertex</h4>
-					p und v auf inzidenten Kanten 45° < a < 90°
+					<p>p und v auf inzidenten Kanten 45° < a < 90°</p>
     			<div class="ggb" id="z5VVcUMA"></div>
 				</section>
 				<section>
@@ -185,6 +214,7 @@
 		**/
 		ggbMaterial = [
 			'D7XYwPfW',
+			'hmZj5mRS',
 			'NS2jCyfX',
 			'Jbf6D8ax',
 			'ndJWMvZK',
