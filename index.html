@@ -52,187 +52,264 @@
 						# Inhalt
 						 - Was ist ein Delaunay Graph?
 						 - Wofür braucht man Delaunay Graphen?
-						 - Ruppert's Algorithmus
-						 - Chews Zweiter Algorithmus
+						 - Rupperts Refinement Algorithmus
+						 - Chews Refinement Algorithmus
 						 - Ausblick
 					</textarea>
 				</section>
-				<section data-markdown>
+
+                <!-- EINFÜHRUNG -->
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Was ist ein Delaunay Graph?
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Ausgangslage
+                            ### Planar Straight Line Graph
+                            - Knoten
+                            - Segmente
+                            - segment-gebunden
+                            - in einer Ebene
+
+                            ![PSLG aus 1](assets/img/pslg-segments.png)
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### PSLG triangulieren
+                            ![PSLG aus 1](assets/img/pslg-segments.png) ![PSLG aus 1](assets/img/pslg-subsegments.png)
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Was macht Delaunay Graphen so besonders?
+                        </textarea>
+                    </section>
+                    <section>
+                        <h3>Umkreisbedinung</h3>
+                        <div class="ggb" id="GpjaA7B9"></div>
+                    </section>
+                    <section>
+                        <h3>Constrained Delaunay</h3>
+                        <!--TODO sichtbarkeit von Punkten erklären?-->
+                        <div class="ggb" id="qKBrMvjR"></div>
+                    </section>
+                </section>
+
+                <!-- MOTIVATION -->
+                <section>
+                    <section data-markdown>
 					<textarea data-template>
 						## Wofür braucht man Delaunay Graphen?
 					</textarea>
+                    </section>
+                    <section data-markdown>
+                        <!-- TODO -->
+                        <textarea data-template>
+                                ### Finite Elemente Methode
+                            </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### 3D Computergrafik
+                            ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
+                        </textarea>
+                    </section>
+                    <section>
+                        <h3>Face tracking</h3>
+                        <!-- TODO better find another video or host it offline -->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Und weil es einfach gut aussieht!
+                            ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
+                        </textarea>
+                    </section>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## 3D Mesh Generation
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## Global Illumination
-					</textarea>
-				</section>
-				<section>
-					<h3>Face tracking</h3>
-					<!-- TODO better find another video or host it offline -->
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-				</section>
-				<section>
-					<h3>Und weil es einfach cool ist!</h3>
-					<!-- http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs -->
-					<img src="http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif">
-					<p>Quelle: hendrixnash.co.uk<p>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						# Grundbegriffe
-					</textarea>
-				</section>
-				<section>
-					<h2>Encroached Subsegments</h2>
-					<div class="ggb" id="hmZj5mRS"></div>
-				</section>
-				<section>
-					<h2>Skinny Triangles</h2>
-					<p>Umkreisradius durch kürzeste Kante<p>
-					<div class="ggb" id="D7XYwPfW"></div>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## Ruppert's Algorithmus
 
-						1. teile encroached subsegments
-						2. entferne skinny triangles
-					</textarea>
-				</section>
-				<section>
-					<h2>Welche Rolle spielt die Reihenfolge?</h2>
-					<p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
-					<div class="ggb" id="NS2jCyfX"></div>
-				</section>
-				<section>
-					<h3>Terminierung</h3>
-					Entfernen von Skinny Triangles kann zu neuen skinny triangles führen.
-					Wir wollen zeigen, dass es eine untere Schranke der Kantenlänge gibt.
-				</section>
-				<!--simply write LaTeX with  https://www.mathjax.org/-->
-				<section>
-					<h3>Beschränkungen</h3>
-					<p>
-						<ul>
-							<li>untere Schranke \( B = \sqrt{2}\)</li>
-							<li>kleinster Winkel \( \alpha \le 60 \)°</li>
-						</ul>
-					</p>
-					<img src="assets/img/ruppert/rup-flowchart.png">
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						### weitere Definitionen
-						- local feature size
-						- insertion radius
-						- parent vertex
-					</textarea>
-				</section>
-				<section>
-					<h2>local feature size</h2>
-					<p>kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
-    			<div class="ggb" id="Jbf6D8ax"></div>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## insertion radius
+                <!-- GRUNDBEGRIFFE -->
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Grundbegriffe
+                        </textarea>
+                    </section>
+                    <section>
+                        <h2>Encroached Subsegments</h2>
+                        <div class="ggb" id="E975hBTQ"></div>
+                    </section>
+                    <section>
+                        <h2>Skinny Triangles</h2>
+                        <p>Verhältnis von Umkreisradius zur kürzesten Kante<p>
+                        <div class="ggb" id="D7XYwPfW"></div>
+                    </section>
+                </section>
 
-						abhängig von der Art des Knotens:
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## parent vertices
+                <!-- RUPPERT -->
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Rupperts Refinement Algorithmus
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Ablauf
 
-						beschreiben Herkunft eines Knotens
-					</textarea>
-				</section>
-				<section>
-					<h4>Ruppert Termination Proof</h4>
-					<p>segment vertex case input parent vertex</p>
-    			<div class="ggb" id="ndJWMvZK"></div>
-				</section>
-				<section>
-					<h4>Ruppert Termination Proof</h4>
-					<p>segment vertex because of rejected parent vertex</p>
-    			<div class="ggb" id="a7zr7JDf"></div>
-				</section>
-				<section>
-					<h4>Ruppert Termination Proof Segment Vertex</h4>
-					<p>p und v auf inzidenten Kanten 45° < a < 90°</p>
-    			<div class="ggb" id="z5VVcUMA"></div>
-				</section>
-				<section>
-					<h4>Ruppert Termination Proof Free Vertex</h4>
-						<p>\(r_v \le B*r_p\)</p>
-    			<div class="ggb" id="QFJFVSXu"></div>
-				</section>
+                            1. teile encroached subsegments
+                            2. entferne skinny triangles
+                        </textarea>
+                    </section>
+                    <section>
+                        <h3>1. encroached subsegments teilen</h3>
+                        <div class="ggb" id="dCUjJyYC"></div>
+                    </section>
+                    <section>
+                        <h3>2. skinny triangles entfernen</h3>
+                        <!-- TODO kannst du hier bitte noch dein geogebra welches wir hier auch im skript verwendet haben einsetzten?-->
+                    </section>
+                    <section>
+                        <!-- TODO weiter ausarbeiten ggb anpassen-->
+                        <h3>Wieso in dieser Reihenfolge?</h3>
+                        <p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
+                        <div class="ggb" id="NS2jCyfX"></div>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Terminierung
+
+                            Entfernen von Skinny Triangles kann zu neuen skinny triangles führen.
+
+                            Wir wollen zeigen, dass es eine untere Schranke der Kantenlänge gibt.
+                        </textarea>
+                    </section>
+                    <section>
+                        <h4>Nur unter diesen Bedingungen:</h4>
+                        <div>
+                            <ul>
+                                <!--simply write LaTeX with  https://www.mathjax.org/-->
+                                <li>untere Schranke \( B = \sqrt{2}\)</li>
+                                <li>kleinster Winkel \( \alpha \le 60 \)°</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Sorry
+                            wir benötigen noch einige Definitionen
+                        </textarea>
+                    </section>
+                    <section>
+                        <h3>local feature size</h3>
+                        <p>kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
+                        <div class="ggb" id="Jbf6D8ax"></div>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### insertion radius
+                            abhängig von der Art des Knotens:
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### parent vertices
+
+                            beschreiben Herkunft eines Knotens
+                        </textarea>
+                    </section>
+                    <section>
+                        <img src="assets/img/ruppert/rup-flowchart.png">
+                        <div>
+                            <ul>
+                                <!--simply write LaTeX with  https://www.mathjax.org/-->
+                                <li>untere Schranke \( B = \sqrt{2}\)</li>
+                                <li>kleinster Winkel \( \alpha \le 60 \)°</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <!-- Beschreibt Woher die Daten aus dem Flowchart kommen-->
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Aber woher kommen diese Daten?
+                        </textarea>
+                    </section>
+                    <section>
+                        <h4>Segment Knoten - Input Elternknoten</h4>
+                        <p>segment vertex case input parent vertex</p>
+                        <div class="ggb" id="ndJWMvZK"></div>
+                    </section>
+                    <section>
+                        <h4>Segment Knoten - verworfener Elternknoten</h4>
+                        <p>segment vertex because of rejected parent vertex</p>
+                        <div class="ggb" id="a7zr7JDf"></div>
+                    </section>
+                    <section>
+                        <h4>Segment Vertex</h4>
+                        <p>p und v auf inzidenten Kanten 45° < a < 90°</p>
+                        <div class="ggb" id="z5VVcUMA"></div>
+                    </section>
+                    <section>
+                        <h4>Ruppert Termination Proof Free Vertex</h4>
+                        <p>\(r_v \le B*r_p\)</p>
+                        <div class="ggb" id="QFJFVSXu"></div>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Was bedeuted das alles?
+
+                            - Es existiert eine untere Schranke für die Länge neuer Kanten.
+                            - Es existiert aber nur endlich viel Platz.
+
+                            Deshalb muss der Algorithmus zwangsläufig terminieren.
+                        </textarea>
+                    </section>
+                </section>
+
+                <!-- CHEW -->
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Chews Refinement Algorithmus
+                        </textarea>
+                    </section>
+                </section>
 				<section id="ty" data-state="ty">
 					<canvas class="center-block" width="900" height="800"></canvas>
 				</section>
 			</div>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				width: "100%",
-				height: "100%",
-				margin: 0,
-				minScale: 1,
-				maxScale: 1,
-					math: {
-						mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-						config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-					},
-				dependencies: [
-					{ src: 'plugin/math/math.js', async: true },
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-		<script>
-		/**
-		To display your ggbMaterial on a slide just drop the ID of it in the Array below and make sure there is a div with the same id inside a slide.
-		You can find the MaterialId in the URL, its the last part of it.
-		Algebra view of the material should be disabled, this option is only available in geogebra classic app.
-		You have to fiddle the size and position of your construction inside ggb and save it back to the cloud that it fits into the given frame, because there is no option in the api to make the content fit a given size..Sorry.
-		**/
-		ggbMaterial = [
-			'D7XYwPfW',
-			'hmZj5mRS',
-			'NS2jCyfX',
-			'Jbf6D8ax',
-			'ndJWMvZK',
-			'a7zr7JDf',
-			'z5VVcUMA',
-			'QFJFVSXu'
-		]
-		ggbApps = ggbMaterial.map((matId) => {
-			return new GGBApplet({material_id: matId, borderColor:"#fff", width: 960, height: 600}, true);
-		})
-
-    Reveal.addEventListener("ready", function() {
-
-			ggbApps.forEach((app, i) => {
-				app.inject(ggbMaterial[i]);
-			})
-    });
-	</script>
-	<script src="js/triangulations.js"></script>
 	</body>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            math: {
+                mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+                config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+            },
+            dependencies: [
+                { src: 'plugin/math/math.js', async: true },
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
+    <script src="js/ggb.js"></script>
+    <script src="js/triangulations.js"></script>
 </html>
