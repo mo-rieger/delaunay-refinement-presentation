@@ -1,4 +1,28 @@
 thankyou();
+loadKey()
+function loadKey() {
+    var model = key
+    var angle = 30
+    var vertices = Graph.fitVerticesInto(model.vertices, 900, 500);
+    var edges = model.edges.slice();
+    triangulate.simple(vertices, edges, model.faces);
+    var qe = triangulate.makeQuadEdge(vertices, edges);
+    triangulate.refineToDelaunay(vertices, edges, qe.coEdges, qe.sideEdges);
+    vertices0 = vertices.slice();
+    edges0 = edges.slice();
+    coEdges0 = [];
+    sideEdges0 = [];
+    for (var j = 0; j < edges.length; ++j) {
+        coEdges0[j] = qe.coEdges[j].slice();
+        sideEdges0[j] = qe.sideEdges[j].slice();
+    }
+    trace = [];
+    triangulate.refineToRuppert(vertices, edges, qe.coEdges, qe.sideEdges, {
+        minAngle: angle,
+        maxSteinerPoints: 200,
+        trace: trace
+    });
+}
 function thankyou(){
   var canvas = $('#ty canvas');
   var vertices = Graph.fitVerticesInto(ty.vertices, 900, 800);
@@ -129,4 +153,64 @@ Reveal.addEventListener( 'ty', function() {
       ++l;
     }, 50);
 }, false );
+}
+Reveal.addEventListener( 'key', function() {
+    refineKey(false)
+}, false );
+
+function refineKey( showTrace ) {
+    var canvas = $('#key canvas');
+    var interval;
+    var vertices = vertices0.slice();
+    var edges = edges0.slice();
+    var coEdges = [];
+    var sideEdges = [];
+    for (var j = 0; j < edges.length; ++j) {
+        coEdges[j] = coEdges0[j].slice();
+        sideEdges[j] = sideEdges0[j].slice();
+    }
+    var h = new Graph(vertices, edges);
+    h.vertexStyle = {
+        radius: 1,
+        color: '#222'
+    };
+    h.edgeStyle = {
+        color: '#222',
+        width: 3
+    };
+    canvas.clearCanvas();
+    h.draw(canvas);
+    if ( showTrace ) {
+        if (interval !== undefined)
+            clearInterval(interval);
+        var l = 0;
+        var steiner = 0;
+        interval = setInterval(function () {
+            if (l < trace.length) {
+                var t = trace[l];
+                ++l;
+                if (t.split !== undefined) {
+                    for (var s = 0; s < t.split.length; ++s) {
+                        var j = t.split[s];
+                        triangulate.splitEdge(vertices, edges, coEdges, sideEdges, j);
+                        ++steiner;
+                    }
+                }
+                if (t.insert !== undefined) {
+                    var k = t.insert % 2, j = (t.insert - k) / 2;
+                    var a = vertices[edges[j][0]];
+                    var b = vertices[coEdges[j][k]];
+                    var c = vertices[edges[j][1]];
+                    var p = geom.circumcenter(a, b, c);
+                    triangulate.tryInsertPoint(vertices, edges, coEdges, sideEdges, p, j);
+                    ++steiner;
+                }
+                canvas.clearCanvas();
+                h.draw(canvas);
+            } else {
+                clearInterval(interval);
+                interval = undefined;
+            }
+        }, 150);
+    }
 }

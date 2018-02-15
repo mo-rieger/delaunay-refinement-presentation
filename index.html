@@ -28,7 +28,9 @@
 		<script src="js/graph.js"></script>
 		<script src="js/triangulate.js"></script>
 		<script src="js/models/ty.js"></script>
-		<style>
+        <script src="js/models/key.js"></script>
+
+        <style>
 			.ggb{
 				display: inline-block;
 			}
@@ -57,6 +59,46 @@
 						 - Ausblick
 					</textarea>
 				</section>
+                <!--TODO hier Triangulation animation einfügen-->
+                <section id="key" data-state="key">
+                    <h2>Delaunay Refinement</h2>
+                    <canvas class="center-block" width="900" height="500"></canvas>
+                    <div>
+                        <a onclick="refineKey(true)">start refinement</a>
+                    </div>
+                </section>
+
+                <!-- MOTIVATION -->
+                <section>
+                    <section data-markdown>
+					<textarea data-template>
+						## Wofür braucht man Delaunay Graphen?
+					</textarea>
+                    </section>
+                    <section data-markdown>
+                        <!-- TODO -->
+                        <textarea data-template>
+                                ### Finite Elemente Methode
+                            </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### 3D Computergrafik
+                            ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
+                        </textarea>
+                    </section>
+                    <section>
+                        <h3>Face tracking</h3>
+                        <!-- TODO better find another video or host it offline -->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Und weil es einfach gut aussieht!
+                            ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
+                        </textarea>
+                    </section>
+                </section>
 
                 <!-- EINFÜHRUNG -->
                 <section>
@@ -98,38 +140,6 @@
                         <div class="ggb" id="qKBrMvjR"></div>
                     </section>
                 </section>
-
-                <!-- MOTIVATION -->
-                <section>
-                    <section data-markdown>
-					<textarea data-template>
-						## Wofür braucht man Delaunay Graphen?
-					</textarea>
-                    </section>
-                    <section data-markdown>
-                        <!-- TODO -->
-                        <textarea data-template>
-                                ### Finite Elemente Methode
-                            </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### 3D Computergrafik
-                            ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
-                        </textarea>
-                    </section>
-                    <section>
-                        <h3>Face tracking</h3>
-                        <!-- TODO better find another video or host it offline -->
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### Und weil es einfach gut aussieht!
-                            ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
-                        </textarea>
-                    </section>
-				</section>
 
                 <!-- GRUNDBEGRIFFE -->
                 <section>
