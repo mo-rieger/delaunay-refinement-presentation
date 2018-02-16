@@ -1,7 +1,9 @@
 # delaunay-refinement-presentation
-Presentation about Delaunay refinement, introducing Rupperts and Chews second Algorithms.
+This Presentation is about Delaunay refinement, we introduce Rupperts and Chews second Algorithm.
+Held at the University of Hagen on 23.02.2018.
 
-## [zur Präsentation](https://peterorlowsky.github.io/delaunay-refinement-presentation/)
+
+## [go to presentation](https://peterorlowsky.github.io/delaunay-refinement-presentation/) (german only)
 
 ### Getting Started
 - Slides
@@ -16,5 +18,7 @@ Presentation about Delaunay refinement, introducing Rupperts and Chews second Al
 - LaTeX
     - check [MathJax](https://www.mathjax.org/)
     `\( B = \sqrt{2}\)`
+
+Algorithms for the triangulation animation from [mkacz91 on github](https://github.com/mkacz91/Triangulations).
 
 Erstellt mit [reveal.js](revealjs.com) und [GeoGebra](geogebra.org).

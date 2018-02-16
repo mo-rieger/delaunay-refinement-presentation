@@ -49,23 +49,23 @@
 						Hagen, 23.02.2018
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						# Inhalt
-						 - Was ist ein Delaunay Graph?
-						 - Wofür braucht man Delaunay Graphen?
-						 - Rupperts Refinement Algorithmus
-						 - Chews Refinement Algorithmus
-						 - Ausblick
-					</textarea>
-				</section>
-                <!--TODO hier Triangulation animation einfügen-->
                 <section id="key" data-state="key">
                     <h2>Delaunay Refinement</h2>
                     <canvas class="center-block" width="900" height="500"></canvas>
                     <div>
                         <a onclick="refineKey(true)">start refinement</a>
                     </div>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+						## Inhalt
+						 - Was ist ein Delaunay Graph?
+						 - Wofür braucht man Delaunay Graphen?
+						 - Grundbegriffe
+						 - Rupperts Refinement Algorithmus
+						 - Chews Refinement Algorithmus
+						 - Ausblick
+					</textarea>
                 </section>
 
                 <!-- MOTIVATION -->
@@ -78,13 +78,13 @@
                     <section data-markdown>
                         <!-- TODO -->
                         <textarea data-template>
-                                ### Finite Elemente Methode
-                            </textarea>
+                            ### Finite Elemente Methode
+                        </textarea>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### 3D Computergrafik
-                            ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
+                            ![https://straypixels.net/delaunay-triangulation-terrain](assets/img/BunnyWire.gif)
                         </textarea>
                     </section>
                     <section>
@@ -145,7 +145,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            # Grundbegriffe
+                            ## Grundbegriffe
                         </textarea>
                     </section>
                     <section>
@@ -163,15 +163,15 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            # Rupperts Refinement Algorithmus
+                            ## Rupperts Refinement Algorithmus
                         </textarea>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Ablauf
+                            ### Ablauf
 
-                            1. teile encroached subsegments
-                            2. entferne skinny triangles
+                            1. Teile encroached subsegments
+                            2. Entferne skinny triangles
                         </textarea>
                     </section>
                     <section>
@@ -180,7 +180,13 @@
                     </section>
                     <section>
                         <h3>2. skinny triangles entfernen</h3>
-                        <!-- TODO kannst du hier bitte noch dein geogebra welches wir hier auch im skript verwendet haben einsetzten?-->
+                        <h4>1. Fall - durch den neuen Knoten enstehen encroached subsegments</h4>
+                        <div class="ggb" id="AV8DJmbp"></div>
+                    </section>
+                    <section>
+                        <h3>2. skinny triangles entfernen</h3>
+                        <h4>2. Fall - durch den neuen Knoten enstehen keine encroached subsegments</h4>
+                        <!-- TODO kannst du hier bitte noch dein geogebra welches wir hier auch im skript Abb 10 a,b) verwendet haben einsetzten? Vllt kannst du auch noch ein paar segmente kennzeichnen indem du sie dicker machst - danke!-->
                     </section>
                     <section>
                         <!-- TODO weiter ausarbeiten ggb anpassen-->
@@ -194,87 +200,170 @@
 
                             Entfernen von Skinny Triangles kann zu neuen skinny triangles führen.
 
-                            Wir wollen zeigen, dass es eine untere Schranke der Kantenlänge gibt.
+                            Terminierungsbeweis über Beweis einer unteren Schranke der Kantenlänge.
                         </textarea>
                     </section>
                     <section>
                         <h4>Nur unter diesen Bedingungen:</h4>
                         <div>
                             <ul>
-                                <!--simply write LaTeX with  https://www.mathjax.org/-->
-                                <li>untere Schranke \( B = \sqrt{2}\)</li>
-                                <li>kleinster Winkel \( \alpha \le 60 \)°</li>
+                                <li>Schranke \( B \ge \sqrt{2}\)</li>
+                                <li>kleinster Winkel \( \alpha \ge 60 \)°</li>
                             </ul>
                         </div>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            #### Sorry
+                            ### Sorry
                             wir benötigen noch einige Definitionen
                         </textarea>
                     </section>
                     <section>
+                        <!--TODO GGB applet noch finetunen-->
                         <h3>local feature size</h3>
                         <p>kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
                         <div class="ggb" id="Jbf6D8ax"></div>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ### insertion radius
-                            abhängig von der Art des Knotens:
-                        </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### parent vertices
-
-                            beschreiben Herkunft eines Knotens
+                            ### Einfügeradius
+                            Länge der kürzesten Kante an v nachdem v eingefügt wurde.
                         </textarea>
                     </section>
                     <section>
+                        <h3>Einfügeradius</h3>
+                        <h4>Eingabeknoten (PSLG)</h4>
+                        <img src="assets/img/ruppert/insertion-radius-1.png">
+                        <aside class="notes" data-markdown>
+                            Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde.
+                            Genau zu dem **Zeitpunkt**.
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Einfügeradius</h3>
+                        <h4>Segmentknoten (encroached subsegment)</h4>
+                        <img src="assets/img/ruppert/insertion-radius-2.png">
+                        <aside class="notes">
+                            Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Einfügeradius</h3>
+                        <h4>verworfene Knoten (skinny triangle)</h4>
+                        <img src="assets/img/ruppert/insertion-radius-3.png">
+                        <aside class="notes">
+                            Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Einfügeradius</h3>
+                        <h4>freie Knoten (skinny triangle)</h4>
+                        <img src="assets/img/ruppert/insertion-radius-4.png">
+                        <aside class="notes">
+                            Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Elternknoten</h3>
+                        <h4>beschreiben Herkunft eines Knotens</h4>
+                        <img src="assets/img/ruppert/rup-parent-vertices.png">
+                        <aside class="notes" data-markdown>
+                            - input knoten -> haben keinen Elternknoten
+                            - segment Knoten -> p(v) verursachender Knoten
+                            - freie Knoten (skinny) -> p(v) zuletzt eingefu ̈gte Knoten auf der ku ̈rzesten Kante des Dreiecks.
+                            So entsteht die *Geschichte* des Graphen
+                        </aside>
+                    </section>
+                    <section>
+                        <h4>Änderung des Einfügeradius bei Kindsknoten</h4>
                         <img src="assets/img/ruppert/rup-flowchart.png">
                         <div>
                             <ul>
-                                <!--simply write LaTeX with  https://www.mathjax.org/-->
-                                <li>untere Schranke \( B = \sqrt{2}\)</li>
-                                <li>kleinster Winkel \( \alpha \le 60 \)°</li>
+                                <li>Schranke \( B \ge \sqrt{2}\)</li>
+                                <li>kleinster Winkel \( \alpha \ge 60 \)°</li>
                             </ul>
                         </div>
+                        <aside class="notes" data-markdown>
+                            - sqrt(2)/sqrt(2) = 1
+                            - cos(60) = 1/2 ->
+                        </aside>
                     </section>
-                    <!-- Beschreibt Woher die Daten aus dem Flowchart kommen-->
                     <section data-markdown>
                         <textarea data-template>
-                            ### Aber woher kommen diese Daten?
+                            ### Was ist mit Kindern von Input Knoten?
                         </textarea>
                     </section>
                     <section>
-                        <h4>Segment Knoten - Input Elternknoten</h4>
-                        <p>segment vertex case input parent vertex</p>
+                        <h4>Kindsknoten von Input-Knoten</h4>
+                        <p>durch lfs beschränkt <br>
+                            \( r_v \ge lfs(v) \)</p>
+                        <!--
                         <div class="ggb" id="ndJWMvZK"></div>
+                        -->
+                        <div class="ggb" id="DKSpnBf7"></div>
                     </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Woher kommen die anderen Werte?
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            Dazu betrachten wir die Beziehung der Einfügeradien ziwschen Eltern und Kindsknoten.
+                        </textarea>
+                    </section>
+                    <section>
+                        <!--TODO vllt. noch etwas verständlicher machen B in Applet einbauen-->
+                        <h4>Kindsknoten von freien Knoten</h4>
+                        <p>\(r_v \ge B*r_p\)</p>
+                        <div class="ggb" id="QFJFVSXu"></div>
+                    </section>
+                    <!--Todo hier auch noch genauer durchgehen -> annotations-->
                     <section>
                         <h4>Segment Knoten - verworfener Elternknoten</h4>
-                        <p>segment vertex because of rejected parent vertex</p>
+                        <p>\( r_v \ge \frac{1}{\sqrt(2)} \)</p>
                         <div class="ggb" id="a7zr7JDf"></div>
+                        <aside class="notes" data-markdown>
+                            Hier kommt noch hilfestellung.
+                        </aside>
                     </section>
                     <section>
-                        <h4>Segment Vertex</h4>
-                        <p>p und v auf inzidenten Kanten 45° < a < 90°</p>
+                       Diese Betrachtungen sind ausreichend um die Terminierung bei Graphen deren kleinster Winkel \( \ge 90° \) ist zu beweisen.
+                    </section>
+                    <section>
+                        Da wir aber Graphen mit kleinsten Winkeln \( \ge 60° \) unterstützen, müssen wir noch weitere Fälle untersuchen.
+                    </section>
+                    <section>
+                        <h4>Kindsknoten von Segment Knoten</h4>
+                        <p>p und v auf inzidenten Kanten \( 45° \le \alpha < 90° \) </p>
+                        <p>\( r_v > \frac{r_p}{2\cos{\alpha}} \)</p>
+                        <div class="ggb" id="CD56Amyj"></div>
+                        <aside class="notes" data-markdown>
+                            s is encroached by p
+                            rp/rv wird dann am kleinsten, wenn p auf dem Durchmesserkreis von s liegt
+                            basic Trigonometry s = rp / cos(alpha) -> rv ist halb so groß! rp/2 cos(alpha)
+                        </aside>
+                    </section>
+                    <!--TODO - überprüfen ob man das nicht weglassen kann, da Winkel kleiner 60 eh ausgeschlossen sind!?-->
+                    <section>
+                        <h4>Kindsknoten von Segment Knoten</h4>
+                        <p>p und v auf inzidenten Kanten \( \alpha \le 45° \) </p>
+                        <p>\( r_v \ge r_p * sin(\alpha) \)</p>
                         <div class="ggb" id="z5VVcUMA"></div>
-                    </section>
-                    <section>
-                        <h4>Ruppert Termination Proof Free Vertex</h4>
-                        <p>\(r_v \le B*r_p\)</p>
-                        <div class="ggb" id="QFJFVSXu"></div>
+                        <aside class="notes" data-markdown>
+                            s is encroached by p
+                            rp/rv wird dann am kleinsten, wenn p auf dem Durchmesserkreis von s liegt
+                            basic Trigonometry s = rp / cos(alpha) -> rv ist halb so groß! rp/2 cos(alpha)
+                        </aside>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### Was bedeuted das alles?
 
-                            - Es existiert eine untere Schranke für die Länge neuer Kanten.
-                            - Es existiert aber nur endlich viel Platz.
+                            Da keine Knoten mit kleiner werdenden Einfügeradien enstehen können.
+                            Können auch nicht kleinere Kanten als schon bestehende Merkmale im Graphen entstehen.
 
-                            Deshalb muss der Algorithmus zwangsläufig terminieren.
+                            Dadurch ist garantiert, dass der Algorithmus terminiert.
                         </textarea>
                     </section>
                 </section>
@@ -283,7 +372,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            # Chews Refinement Algorithmus
+                            ## Chews Refinement Algorithmus
                         </textarea>
                     </section>
                 </section>
