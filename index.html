@@ -136,7 +136,7 @@
                     </section>
                     <section>
                         <h3>Constrained Delaunay</h3>
-                        <!--TODO sichtbarkeit von Punkten erklären?-->
+                        <!--TODO @chris sichtbarkeit von Punkten erklären!-->
                         <div class="ggb" id="qKBrMvjR"></div>
                     </section>
                 </section>
@@ -186,25 +186,46 @@
                     <section>
                         <h3>2. skinny triangles entfernen</h3>
                         <h4>2. Fall - durch den neuen Knoten enstehen keine encroached subsegments</h4>
-                        <!-- TODO kannst du hier bitte noch dein geogebra welches wir hier auch im skript Abb 10 a,b) verwendet haben einsetzten? Vllt kannst du auch noch ein paar segmente kennzeichnen indem du sie dicker machst - danke!-->
+                        <!-- TODO @chris kannst du hier bitte noch dein geogebra welches wir hier auch im skript Abb 10 a,b) verwendet haben einsetzten? Vllt kannst du auch noch ein paar segmente kennzeichnen indem du sie dicker machst - danke!-->
                     </section>
                     <section>
                         <!-- TODO weiter ausarbeiten ggb anpassen-->
                         <h3>Wieso in dieser Reihenfolge?</h3>
                         <p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
                         <div class="ggb" id="NS2jCyfX"></div>
+                        <aside class="notes" data-markdown>
+                            **Vorraussetzungen:**
+                            - Triangulation ist segement-gebunden
+                            - keine encroached subsegments mehr
+                            - v liegt innerhalb von t
+                            - Schwerpunkt c immer innerhalb
+
+                            **Widerspruchsbeweis:**
+                            - V liegt ausserhalb
+                            - cv muss segment s schneiden
+                            - Teil des Umkreises von t auf selber seite von c wie s muss im Durchmesserkreis von s liegen
+                            - es können aber nur max. 2 Punkte von t (Endpunkte von s) auf dem Druchmesserkreis von s liegen.
+                            - mind. 1 Punkt liegt also im Durchmesserkreis -> **Widerspruch - keine encroached subsegments**
+                        </aside>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ### Terminierung
-
-                            Entfernen von Skinny Triangles kann zu neuen skinny triangles führen.
-
-                            Terminierungsbeweis über Beweis einer unteren Schranke der Kantenlänge.
+                            ### Terminierungsbeweis
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            Beim entfernen von Skinny Triangles können neue Skinny Triangles entstehen.
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Idee
+                            Zeigen, dass eine untere Schranke für die Länge neuer Kanten existiert.
                         </textarea>
                     </section>
                     <section>
-                        <h4>Nur unter diesen Bedingungen:</h4>
+                        <h4>Gilt nur unter diesen Bedingungen:</h4>
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{2}\)</li>
@@ -219,7 +240,7 @@
                         </textarea>
                     </section>
                     <section>
-                        <!--TODO GGB applet noch finetunen-->
+                        <!--TODO GGB applet skript fixen, oder statisch machen.-->
                         <h3>local feature size</h3>
                         <p>kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
                         <div class="ggb" id="Jbf6D8ax"></div>
@@ -227,13 +248,8 @@
                     <section data-markdown>
                         <textarea data-template>
                             ### Einfügeradius
-                            Länge der kürzesten Kante an v nachdem v eingefügt wurde.
+                            Länge der kürzesten Kante an einem Knoten v nachdem er eingefügt wurde.
                         </textarea>
-                    </section>
-                    <section>
-                        <h3>Einfügeradius</h3>
-                        <h4>Eingabeknoten (PSLG)</h4>
-                        <img src="assets/img/ruppert/insertion-radius-1.png">
                         <aside class="notes" data-markdown>
                             Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde.
                             Genau zu dem **Zeitpunkt**.
@@ -241,10 +257,18 @@
                     </section>
                     <section>
                         <h3>Einfügeradius</h3>
+                        <h4>Eingabeknoten (PSLG)</h4>
+                        <img src="assets/img/ruppert/insertion-radius-1.png">
+                        <aside class="notes" data-markdown>
+                            Distanz zum nächsten Input Knoten
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Einfügeradius</h3>
                         <h4>Segmentknoten (encroached subsegment)</h4>
                         <img src="assets/img/ruppert/insertion-radius-2.png">
                         <aside class="notes">
-                            Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde
+                            Distanz zum nächsten verursachenden knoten
                         </aside>
                     </section>
                     <section>
@@ -252,7 +276,7 @@
                         <h4>verworfene Knoten (skinny triangle)</h4>
                         <img src="assets/img/ruppert/insertion-radius-3.png">
                         <aside class="notes">
-                            Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde
+                            Da Verursacher nichtmehr vorhanden rv ist Länge eines entstandenen Subsegments
                         </aside>
                     </section>
                     <section>
@@ -260,7 +284,7 @@
                         <h4>freie Knoten (skinny triangle)</h4>
                         <img src="assets/img/ruppert/insertion-radius-4.png">
                         <aside class="notes">
-                            Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde
+                           Umkreis des skinn triangles aufgrunddessen v eingefügt wurde
                         </aside>
                     </section>
                     <section>
@@ -295,8 +319,7 @@
                     </section>
                     <section>
                         <h4>Kindsknoten von Input-Knoten</h4>
-                        <p>durch lfs beschränkt <br>
-                            \( r_v \ge lfs(v) \)</p>
+                        <p>\( r_v \ge lfs(v) \)</p>
                         <!--
                         <div class="ggb" id="ndJWMvZK"></div>
                         -->
@@ -340,6 +363,7 @@
                         <div class="ggb" id="CD56Amyj"></div>
                         <aside class="notes" data-markdown>
                             s is encroached by p
+                            Winkel s, rp is fix
                             rp/rv wird dann am kleinsten, wenn p auf dem Durchmesserkreis von s liegt
                             basic Trigonometry s = rp / cos(alpha) -> rv ist halb so groß! rp/2 cos(alpha)
                         </aside>
@@ -351,19 +375,23 @@
                         <p>\( r_v \ge r_p * sin(\alpha) \)</p>
                         <div class="ggb" id="z5VVcUMA"></div>
                         <aside class="notes" data-markdown>
-                            s is encroached by p
-                            rp/rv wird dann am kleinsten, wenn p auf dem Durchmesserkreis von s liegt
-                            basic Trigonometry s = rp / cos(alpha) -> rv ist halb so groß! rp/2 cos(alpha)
+
                         </aside>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### Was bedeuted das alles?
-
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
                             Da keine Knoten mit kleiner werdenden Einfügeradien enstehen können.
                             Können auch nicht kleinere Kanten als schon bestehende Merkmale im Graphen entstehen.
-
-                            Dadurch ist garantiert, dass der Algorithmus terminiert.
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            Dadurch ist bewiesen, dass der Algorithmus terminiert.
                         </textarea>
                     </section>
                 </section>
