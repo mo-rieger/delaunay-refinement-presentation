@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 # Mac OSX files
 .DS_Store
+
+#Intelli J Webstorm files
+.idea/
