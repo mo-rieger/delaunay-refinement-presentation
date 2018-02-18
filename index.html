@@ -248,19 +248,20 @@
                         </textarea>
                     </section>
                     <section>
-                        <!--TODO GGB applet skript fixen, oder statisch machen.-->
-                        <h3>local feature size</h3>
+                        <!--TODO GGB applet lfs(u) + uv aus applet rausnehmen? dafür mehr beisspielpunkte .-->
+                        <h3>Local feature size - lfs</h3>
                         <p>kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
+                        <p> \( lfs(v) \le lfs(u) + |uv| \)</p>
                         <div class="ggb" id="fTUzuQZh"></div>
                         <aside class="notes" data-markdown>
                             local feature size eines Punktes v ist durch lfs(u)+|uv| begrenzt
+                            - nur v bewegen!
+                            - wichtig.
                         </aside>
                     </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### Einfügeradius
-                            Länge der kürzesten Kante an einem Knoten v nachdem er eingefügt wurde.
-                        </textarea>
+                    <section>
+                        <h3>Einfügeradius</h3>
+                        <p>Länge der kürzesten Kante an einem Knoten v nachdem er eingefügt wurde.</p>
                         <aside class="notes" data-markdown>
                             Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde.
                             Genau zu dem **Zeitpunkt**.
@@ -295,7 +296,7 @@
                         <h4>freie Knoten (skinny triangle)</h4>
                         <img src="assets/img/ruppert/insertion-radius-4.png">
                         <aside class="notes">
-                           Umkreis des skinn triangles aufgrunddessen v eingefügt wurde
+                           Umkreis des skinny triangles aufgrunddessen v eingefügt wurde
                         </aside>
                     </section>
                     <section>
@@ -333,7 +334,8 @@
                         <p>\( r_v \ge lfs(v) \)</p>
                         <div class="ggb" id="H6yqzYD4"></div>
                         <aside class="notes" data-markdown>
-                            #### r_v bei input ist kürzeste Distanz zum nächsten Knoten
+                            v ist umkreismittelpunkt von skinny triangle
+                            #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
                             - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
                             - es sei denn, die lfs des kinds ist noch kleiner
                             **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
@@ -366,13 +368,13 @@
                         <img src="assets/img/ruppert/flow-free-vertices.png">
                     </section>
                     <section>
-                        <!--TODO B>1,4 einstellen in ggb-->
                         <h4>freie Kinderknoten</h4>
                         <p>\( B = \frac{Umkreisradius}{kürzeste Kante} = \frac{r_v}{r_p} \ge \sqrt{2}\)</p>
                         <p>\(r_v \ge B*r_p\)</p>
                         <div class="ggb" id="QFJFVSXu"></div>
                         <aside class="notes">
                             p ist Elternknoten
+                            Formel logisch durchgehen
                         </aside>
                     </section>
                     <!--TODO hier noch freie knoten mit segment elternknoten ggb?-->
@@ -403,7 +405,7 @@
                     </section>
                     <section>
                         <h4>Kindknoten von Segment Knoten</h4>
-                        <p>p und v auf inzidenten Kanten \( 45° \le \alpha < 90° \) </p>
+                        <p>p und v auf inzidenten Segmenten \( 45° \le \alpha < 90° \) </p>
                         <p>\( r_v > \frac{r_p}{2\cos{\alpha}} \)</p>
                         <div class="ggb" id="CD56Amyj"></div>
                         <aside class="notes" data-markdown>
@@ -414,6 +416,7 @@
                         </aside>
                     </section>
                     <!--TODO - überprüfen ob man das nicht weglassen kann, da Winkel kleiner 60 eh ausgeschlossen sind!?-->
+                    <!--
                     <section>
                         <h4>Kindknoten von Segment Knoten</h4>
                         <p>p und v auf inzidenten Kanten \( \alpha \le 45° \) </p>
@@ -423,6 +426,7 @@
 
                         </aside>
                     </section>
+                    -->
                     <section data-markdown>
                         <textarea data-template>
                             ### Was bedeutet das alles?
@@ -430,8 +434,10 @@
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            Da keine Knoten mit kleiner werdenden Einfügeradien enstehen können.
-                            Können auch nicht kleinere Kanten als schon bestehende Merkmale im Graphen entstehen.
+                            - Einfügeradien von Kindknoten können nicht immer kleiner werden, als die der Eltern.
+                            - Außer die local feature size des Kindknotens ist kleiner.
+
+                            => untere Grenze für neue Kanten ist die kleinste lfs im PSLG!
                         </textarea>
                     </section>
                     <section data-markdown>
