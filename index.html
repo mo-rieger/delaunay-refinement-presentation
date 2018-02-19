@@ -52,6 +52,7 @@
                 <section id="key" data-state="key">
                     <h2>Delaunay Refinement</h2>
                     <canvas class="center-block" width="900" height="500"></canvas>
+                    <sup>[1]</sup>
                     <div>
                         <a onclick="refineKey(true)">start refinement</a>
                     </div>
@@ -78,27 +79,26 @@
                     <section>
                         <h3>Finite Elemente Methode</h3>
                         <img src="assets/img/fem-pump.png" style="height: 600px;">
-                        <p class="source">https://upload.wikimedia.org/wikipedia/commons/c/cd/Elmer-pump-heatequation.png</p>
-                            <aside class="notes" data-markdown>
-                            <!-- TODO mehr infos zu FEM in den speaker notes-->
-                            Nähere Infos zu FEM
-                            </aside>
+                        <sup>[2]</sup>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### 3D CG
                             ![http://www.cs.mun.ca/~omeruvia/philosophy/WireframeBunny.html](assets/img/BunnyWire.gif)
+                            <sup>[3]</sup>
                         </textarea>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### CG - Terrain Generation
                             ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
+                            <sup>[4]</sup>
                         </textarea>
                     </section>
                     <section>
                         <h3>Face tracking</h3>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                        <iframe width="840" height="560" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                        <sup>[5]</sup>
                         <aside class="notes">
                             Kann auch zur Gesichtserkennung verwendet werden.
                             Histogramm über die Flächen der Dreiecke zum abgleich.
@@ -109,6 +109,7 @@
                         <textarea data-template>
                             ### Und weil es einfach gut aussieht!
                             ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
+                            <sup>[6]</sup>
                         </textarea>
                     </section>
                 </section>
@@ -130,12 +131,14 @@
                             - in einer Ebene
 
                             ![PSLG aus 1](assets/img/pslg-segments.png)
+                            <sup>[7]</sup>
                         </textarea>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### PSLG triangulieren
                             ![PSLG aus 1](assets/img/pslg-segments.png) ![PSLG aus 1](assets/img/pslg-subsegments.png)
+                            <sup>[7]</sup>
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -296,6 +299,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>Eingabeknoten (PSLG)</h4>
                         <img src="assets/img/ruppert/insertion-radius-1.png">
+                        <sup>[7]</sup>
                         <aside class="notes" data-markdown>
                             kürzeste Distanz zum nächsten Input Knoten
                         </aside>
@@ -304,6 +308,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>Segmentknoten (encroached subsegment)</h4>
                         <img src="assets/img/ruppert/insertion-radius-2.png">
+                        <sup>[7]</sup>
                         <aside class="notes">
                             Distanz zum nächsten verursachenden knoten
                         </aside>
@@ -312,6 +317,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>verworfene Knoten (skinny triangle)</h4>
                         <img src="assets/img/ruppert/insertion-radius-3.png">
+                        <sup>[7]</sup>
                         <aside class="notes">
                             Da Verursacher nichtmehr vorhanden rv ist Länge eines entstandenen Subsegments
                         </aside>
@@ -320,6 +326,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>freie Knoten (skinny triangle)</h4>
                         <img src="assets/img/ruppert/insertion-radius-4.png">
+                        <sup>[7]</sup>
                         <aside class="notes">
                            Umkreis des skinny triangles aufgrunddessen v eingefügt wurde
                         </aside>
@@ -328,6 +335,7 @@
                         <h3>Elternknoten</h3>
                         <h4>beschreiben Herkunft eines Knotens</h4>
                         <img src="assets/img/ruppert/rup-parent-vertices.png">
+                        <sup>[7]</sup>
                         <aside class="notes" data-markdown>
                             - input knoten -> haben keinen Elternknoten
                             - segment Knoten -> p(v) verursachender Knoten
@@ -338,6 +346,7 @@
                     <section>
                         <h4>Änderung des Einfügeradius bei Kinderknoten</h4>
                         <img src="assets/img/ruppert/rup-flowchart.png">
+                        <sup>[7]</sup>
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{2}\)</li>
@@ -391,6 +400,7 @@
                     <section>
                         <h4>freie Kinderknoten</h4>
                         <img src="assets/img/ruppert/flow-free-vertices.png">
+                        <sup>[7]</sup>
                     </section>
                     <section>
                         <h4>freie Kinderknoten</h4>
@@ -406,6 +416,7 @@
                     <section>
                         <h4>Segment Kinderknoten mit freien Elternknoten</h4>
                         <img src="assets/img/ruppert/flow-free2segment.png">
+                        <sup>[7]</sup>
                     </section>
                     <section>
                         <!--TODO woher kommt 1/sqrt(2)?-->
@@ -426,6 +437,7 @@
                     <section>
                         <h4>Segment Kinderknoten mit Segment Elternknoten</h4>
                         <img src="assets/img/ruppert/flow-segment2segment.png">
+                        <sup>[7]</sup>
                     </section>
                     <section>
                         <h4>Kindknoten von Segment Knoten</h4>
@@ -526,8 +538,37 @@
                         <div class="ggb" id="ZUPQBh9U"></div>
                     </section>
                 </section>
+
+                <!-- Ausblick -->
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Ausblick
+                        </textarea>
+                    </section>
+                </section>
+
+                <!-- Quellen -->
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Quellen
+                            <p style="text-align:left" class="source">[1] https://github.com/mkacz91/Triangulations - Triangulations Algorithmus</p>
+                            <p style="text-align:left" class="source">[2] https://upload.wikimedia.org/wikipedia/commons/c/cd/Elmer-pump-heatequation.png
+                                <br> - FEM Modell einer Wärmepumpe</br></p>
+                            <p style="text-align:left" class="source">[3] http://www.cs.mun.ca/~omeruvia/philosophy/WireframeBunny.html - 3D Bunny</p>
+                            <p style="text-align:left" class="source">[4] https://straypixels.net/delaunay-triangulation-terrain - Terrain Generation</p>
+                            <p style="text-align:left" class="source">[5] https://www.youtube.com/embed/Zes2LivGozI?rel=0 - Face Tracking</p>
+                            <p style="text-align:left" class="source">[6] http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twig - Art</p>
+                            <p style="text-align:left" class="source">[7] Shewchuk JR. Delaunay Refinement Algorithms for Triangular Mesh Generation.
+                                <br> - Computational Geometry. 2002;22:21–74.</br></p>
+                        </textarea>
+                    </section>
+                </section>
+
 				<section id="ty" data-state="ty">
 					<canvas class="center-block" width="900" height="800"></canvas>
+                    <sup>[1]</sup>
 				</section>
 			</div>
 		</div>
