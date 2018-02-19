@@ -59,8 +59,8 @@
                 <section data-markdown>
                     <textarea data-template>
 						## Inhalt
-						 - Was ist ein Delaunay Graph?
 						 - Wofür braucht man Delaunay Graphen?
+						 - Was ist ein Delaunay Graph?
 						 - Grundbegriffe
 						 - Rupperts Refinement Algorithmus
 						 - Chews Refinement Algorithmus
@@ -75,15 +75,14 @@
 						## Wofür braucht man Delaunay Graphen?
 					</textarea>
                     </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### Finite Elemente Methode
-                            ![https://upload.wikimedia.org/wikipedia/commons/c/cd/Elmer-pump-heatequation.png](assets/img/fem-pump.png)
+                    <section>
+                        <h3>Finite Elemente Methode</h3>
+                        <img src="assets/img/fem-pump.png" style="height: 600px;">
+                        <p class="source">https://upload.wikimedia.org/wikipedia/commons/c/cd/Elmer-pump-heatequation.png</p>
                             <aside class="notes" data-markdown>
                             <!-- TODO mehr infos zu FEM in den speaker notes-->
                             Nähere Infos zu FEM
                             </aside>
-                        </textarea>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
@@ -103,6 +102,7 @@
                         <aside class="notes">
                             Kann auch zur Gesichtserkennung verwendet werden.
                             Histogramm über die Flächen der Dreiecke zum abgleich.
+                            http://image.cse.nsysu.edu.tw/ServerPaper/19/The%20Application%20of%20Delaunay%20Triangulation%20to%20Face%20Recognition.pdf
                         </aside>
                     </section>
                     <section data-markdown>
@@ -169,6 +169,9 @@
                         <h2>Skinny Triangles</h2>
                         <p>Verhältnis von Umkreisradius zur kürzesten Kante<p>
                         <div class="ggb" id="D7XYwPfW"></div>
+                        <aside class="notes">
+                            Punkt E bewegen
+                        </aside>
                     </section>
                 </section>
 
@@ -202,6 +205,10 @@
                         <h3>2. skinny triangles entfernen</h3>
                         <h4>1. Fall - durch den neuen Knoten enstehen encroached subsegments</h4>
                         <div class="ggb" id="AV8DJmbp"></div>
+                        <aside class="notes">
+                            neue skinny triangles können enstehen!
+                            <!--TODO eine Kante in der ggb app fehlt-->
+                        </aside>
                     </section>
                     <section>
                         <h3>2. skinny triangles entfernen</h3>
@@ -216,6 +223,9 @@
                         <p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
                         <div class="ggb" id="NS2jCyfX"></div>
                         <aside class="notes" data-markdown>
+                            **Annahme**
+                            Alle Kanten des Dreiecks sind Subsegmente!! (segmentgebunden)
+
                             **Vorraussetzungen:**
                             - Triangulation ist segement-gebunden
                             - keine encroached subsegments mehr
@@ -251,7 +261,7 @@
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{2}\)</li>
-                                <li>kleinster Winkel \( \alpha \ge 60 \)°</li>
+                                <li>kein Winkel \( \alpha \le 60 \)°</li>
                             </ul>
                         </div>
                     </section>
@@ -263,8 +273,8 @@
                     </section>
                     <section>
                         <h3>Local feature size - lfs</h3>
-                        <p>kleinster Umkreis eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
-                        <p> \( lfs(v) \le lfs(u) + |uv| \)</p>
+                        <p>Radius des kleinsten Umkreises eines Punktes welcher zwei nicht inzidente Merkmale enthält</p>
+                        <!-- <p> \( lfs(v) \le lfs(u) + |uv| \)</p> -->
                         <div class="ggb" id="fTUzuQZh"></div>
                         <aside class="notes" data-markdown>
                             local feature size eines Punktes v ist durch lfs(u)+|uv| begrenzt
@@ -278,6 +288,8 @@
                         <aside class="notes" data-markdown>
                             Abhängig von der Art des Knotens bzw. weshalb der Knoten eingefügt wurde.
                             Genau zu dem **Zeitpunkt**.
+
+                            Kürzeste Kante die durch den Knoten entstehen kann.
                         </aside>
                     </section>
                     <section>
@@ -285,7 +297,7 @@
                         <h4>Eingabeknoten (PSLG)</h4>
                         <img src="assets/img/ruppert/insertion-radius-1.png">
                         <aside class="notes" data-markdown>
-                            Distanz zum nächsten Input Knoten
+                            kürzeste Distanz zum nächsten Input Knoten
                         </aside>
                     </section>
                     <section>
@@ -329,7 +341,7 @@
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{2}\)</li>
-                                <li>kleinster Winkel \( \alpha \ge 60 \)°</li>
+                                <li>kein Winkel \( \alpha \le 60 \)°</li>
                             </ul>
                         </div>
                         <aside class="notes" data-markdown>
@@ -431,14 +443,14 @@
                     <!--
                     <section>
                         <h4>Kindknoten von Segment Knoten</h4>
-                        <p>p und v auf inzidenten Kanten \( \alpha \le 45° \) </p>
+                        <p>p und v auf inzidenten Segmenten \( \alpha \le 45° \) </p>
                         <p>\( r_v \ge r_p * sin(\alpha) \)</p>
                         <div class="ggb" id="z5VVcUMA"></div>
                         <aside class="notes" data-markdown>
 
                         </aside>
                     </section>
-                    -->
+                       -->
                     <section data-markdown>
                         <textarea data-template>
                             ### Was bedeutet das alles?
@@ -449,7 +461,7 @@
                             - Einfügeradien von Kindknoten können nicht immer kleiner werden, als die der Eltern.
                             - Außer die local feature size des Kindknotens ist kleiner.
 
-                            => untere Grenze für neue Kanten ist die kleinste lfs im PSLG!
+                            &#8658 untere Grenze für neue Kanten ist die kleinste lfs im PSLG!
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -457,16 +469,18 @@
                             Dadurch ist bewiesen, dass der Algorithmus terminiert.
                         </textarea>
                     </section>
+                    <!--
                     <section>
                         <h3>Laufzeit</h3>
                     </section>
                     <section>
-                            <h5>CDT: \( O(n log(n) \)</h5>
+                            <h5>CDT: \( O(n log(n)) \)</h5>
                             <h5>Ruppert average: \( O(n) \)</h5>
                             <p>n ist Anzahl zusätzlich eingefügter Knoten</p>
-                            <h5>Ruppert worstcase : \( O (h^2\)</h5>
+                            <h5>Ruppert worstcase : \( O (h^2) \)</h5>
                             <p>h ist  die Größe des fertigen Delaunay Graphen</p>
                     </section>
+                    -->
                 </section>
 
                 <!-- CHEW -->
@@ -494,9 +508,10 @@
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{5}/2\)</li>
-                                <li>kleinster Winkel \( \alpha \ge 60 \)°</li>
+                                <li>kein Winkel \( \alpha \le 60 \)°</li>
                             </ul>
                         </div>
+                        <div class="ggb" id="v5w64QaX"></div>
                     </section>
                     <section>
                         <div>
