@@ -505,37 +505,130 @@
                     <section data-markdown>
                         <textarea data-template>
                             ### Vorteile gegeüber Rupperts Algorithmus:
-                            - garantierter Mindestwinkel steigt von **20,7°** auf **26,5°**
-                            - unter gegebenen Umständen werden weniger Dreiecke erzeugt
+                            garantierter Mindestwinkel steigt von **20,7°** auf **26,5°**
 
-                            &#8658 insgesamt höhere Vernetzungsqualität
+                            &#8658 gleichmäßigere Dreiecke
+                            <div class="ggb" id="sbV9FKTj"></div>
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Vorteile gegenüber Rupperts Algorithmus:
+                            es werden unter gegebenen Vorraussetzungen deutlich weniger Dreiecke erzeugt
+
+                            &#8658 insgesamt höhere Triangulationsqualität
+                            <img src="assets/img/chew/num_segment_splits.png">
+
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Nachteil gegenüber Rupperts Algorithmus:
+
+                            es wird nur eine Constrained Delauay Triangulation garantiert
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Input
+
+                            Constrained Delaunay Graph
                         </textarea>
                     </section>
                     <section>
-                        <h4>Input:</h4>
-                        Constrained Delaunay Graph
-                        <br>
-                        </br>
-                        <h5>Voraussetzungen für den Algorithmus:</h5>
+                        <div>
+                            <h4>Ablauf</h4>
+                            <s>1. Teile encroached subsegments</s>
+                            <br>1. Skinny triangles entfernen</br>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h5>Entferne skinny triangles</h5>
+                            <h7><b>1. Fall:</b> Normales Vorgehen</h7>
+                        </div>
+                        <div class="ggb" id="ruWnqPhf"></div>
+                    </section>
+                    <section>
+                        <div>
+                            <h5>Entferne skinny triangles</h5>
+                            <p><b>2. Fall:</b> ein oder mehrere Subsegmente befinden sich zwischen dem skinny </br> triangle und dem Umkreismittelpunkt</p>
+                        </div>
+                        <div class="ggb" id="ZUPQBh9U"></div>
+                        <p>Alle freien Knoten innerhalb des Durchmesserkreis werden entfernt</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Terminierungsbeweis
+
+                            Der Beweis kann genauso wie der für Rupperts Algorithmus geführt werden
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Idee
+                            Zeigen, dass eine untere Schranke für die Länge neuer Kanten existiert.
+                        </textarea>
+                    </section>
+                    <section>
+                        <h4>Eine Termininierung ist nur unter diesen Bedingungen garantiert:</h4>
+                        <div>
+                            <ul>
+                                <li>Schranke \( B \ge \sqrt{5}/2=1.12\)</li>
+                                <li>kein Winkel \( \alpha \le 60 \)°</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Änderung des Einfügeradius bei Kinderknoten</h4>
+                        <img src="assets/img/chew/flow-chew.png">
+                        <sup>[7]</sup>
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{5}/2\)</li>
                                 <li>kein Winkel \( \alpha \le 60 \)°</li>
                             </ul>
                         </div>
-                        <div class="ggb" id="v5w64QaX"></div>
                     </section>
                     <section>
-                        <div>
-                            <h4>Ablauf</h4>
-                            <s>1. Teile encroached subsegments</s>
-                            <br>1. Entferne skinny triangles</br>
-                        </div>
-                        <div class="ggb" id="ruWnqPhf"></div>
+                        <h4>Segment Kinderknoten von Input Elternknoten</h4>
+                        <p>\( r_v \ge lfs(v) \)</p>
+                        <div class="ggb" id="MTfRrh2v"></div>
+                        <aside class="notes" data-markdown>
+                            v ist umkreismittelpunkt von skinny triangle
+                            #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
+                            - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
+                            - es sei denn, die lfs des kinds ist noch kleiner
+                            **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
+                        </aside>
                     </section>
                     <section>
-                        <p>Wenn ein oder mehrere Subsegmente zwischen dem skinny triangle und dem Umkreismittekpunkt liegen:</p>
-                        <div class="ggb" id="ZUPQBh9U"></div>
+                        <h4>freie Kinderknoten</h4>
+                        <img src="assets/img/chew/flow-chew-2free.png">
+                        <sup>[7]</sup>
+                    </section>
+                    <section>
+                        <h4>Segment Kinderknoten mit freien Elternknoten</h4>
+                        <img src="assets/img/chew/flow-chew-free2seg.png">
+                        <sup>[7]</sup>
+                    </section>
+                    <section>
+                        <h4>Segment Kinderknoten mit Segment Elternknoten</h4>
+                        <img src="assets/img/chew/flow-chew-seg2seg.png">
+                        <sup>[7]</sup>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Es gilt also die gleiche Schlussfolgerung wie schon bei Rupperts Algorithmus
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            - Einfügeradien von Kindknoten können nicht immer kleiner werden, als die der Eltern.
+                            - Außer die local feature size des Kindknotens ist kleiner.
+
+                            &#8658 untere Grenze für neue Kanten ist die kleinste lfs im PSLG!
+                        </textarea>
                     </section>
                 </section>
 
