@@ -26,7 +26,8 @@ ggbMaterial = [
     'ZUPQBh9U',
     'v5w64QaX', // Schranke B Umkreisradius / kürzeste Kante
     'sbV9FKTj',
-    'MTfRrh2v'
+    'MTfRrh2v',
+    'SBY3FQUK'
 ]
 ggbApps = ggbMaterial.map((matId) => {
     return new GGBApplet({material_id: matId, borderColor:"#fff", width: 960, height: 600}, true);
