@@ -41,7 +41,7 @@
 			<div class="slides">
 				<section data-markdown>
 					<textarea data-template>
-						# Delaunay Refinement
+						# Delaunay Verfeinerung
 
 						Christian Weber, Moritz Rieger
 
@@ -50,11 +50,11 @@
 					</textarea>
 				</section>
                 <section id="key" data-state="key">
-                    <h2>Delaunay Refinement</h2>
+                    <h2>Delaunay Verfeinerung</h2>
                     <canvas class="center-block" width="900" height="500"></canvas>
                     <sup>[1]</sup>
                     <div>
-                        <a onclick="refineKey(true)">start refinement</a>
+                        <a onclick="refineKey(true)">Verfeinerung starten</a>
                     </div>
                 </section>
                 <section data-markdown>
@@ -63,9 +63,9 @@
 						 - Wofür braucht man Delaunay Graphen?
 						 - Was ist ein Delaunay Graph?
 						 - Grundbegriffe
-						 - Rupperts Refinement Algorithmus
-						 - Chews Refinement Algorithmus
-						 - Ausblick
+						 - Rupperts Verfeinerungs Algorithmus
+						 - Chews Verfeinerungs Algorithmus
+						 - Zusammenfassung Ausblick
 					</textarea>
                 </section>
 
@@ -83,14 +83,14 @@
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ### 3D CG
+                            ### 3D Computer Grafik
                             ![http://www.cs.mun.ca/~omeruvia/philosophy/WireframeBunny.html](assets/img/BunnyWire.gif)
                             <sup>[3]</sup>
                         </textarea>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ### CG - Terrain Generation
+                            ### Computer Grafik - Terrain Generation
                             ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
                             <sup>[4]</sup>
                         </textarea>
@@ -151,7 +151,7 @@
                         </textarea>
                     </section>
                     <section>
-                        <h3>Umkreisbedinung</h3>
+                        <h3>Umkreisbedingung</h3>
                         <div class="ggb" id="GpjaA7B9"></div>
                     </section>
                     <section>
@@ -186,7 +186,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Rupperts Refinement Algorithmus
+                            ## Rupperts Verfeinerungsalgorithmus
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -677,13 +677,58 @@
                     </section>
                 </section>
 
-                <!-- Ausblick -->
+                <!-- Zusammenfassung -->
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Ausblick
+                            ## Zusammenfassung und Ausblick
                         </textarea>
                     </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Zusammenfassung
+                            Delaunay Triangulationen sind für viele Anwendungen von großer Bedeutung:
+                            - Finite Elemente Methoden
+                            - Computer Grafik
+                            - Tracking
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Zusammenfassung
+                            Die Algorithmen von Ruppert und Chew gehören zu den etabliertesten Verfahren der Delaunay Triangulation
+
+                            **Vorraussetzung:** im PSLG tritt kein Winkel
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Zusammenfassung
+                            Durch das Entfernen von Knoten aus der Triangulation schafft Chew eine Verbesserung des Mindestwinkels von **20,7°** auf **26,5°**
+                            und zerteilt dabei weniger Segmente
+
+                            **&#8658 bessere Triangulationsqualität**
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Ausblick
+                            In der Praxis stellen kleine Winkel ein großes Problem für hochwertige Triangulationen dar
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Ausblick
+                            **Shewchuk JR.** stellt in seinem Paper
+
+                            **Delaunay Refinement Algorithms for Triangular Mesh Generation**
+
+                            Methoden vor wie man mit kleinen Winkeln umgehen kann
+
+                            &#8658 diese setzt er in seinem **Terminator** Algorithmus um und erreicht einen garantierten Mindestwinkel von **30°**
+                        </textarea>
+                    </section>
+
                 </section>
 
                 <!-- Quellen -->
