@@ -28,7 +28,10 @@ ggbMaterial = [
     'sbV9FKTj',
     'MTfRrh2v',
     'SBY3FQUK',
-    'sdqkCncf'
+    'sdqkCncf',
+    'Fawtygns',
+    'AY5wy4JR',
+    'B2MGBsYS'
 ]
 ggbApps = ggbMaterial.map((matId) => {
     return new GGBApplet({material_id: matId, borderColor:"#fff", width: 960, height: 600}, true);
