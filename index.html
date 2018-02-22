@@ -95,15 +95,8 @@
                             <sup>[3]</sup>
                         </textarea>
                     </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### Computer Grafik - Terrain Generation
-                            ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
-                            <sup>[4]</sup>
-                        </textarea>
-                    </section>
                     <section>
-                        <h3>Face tracking</h3>
+                        <h3>Gesichtserkennung</h3>
                         <iframe width="840" height="560" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
                         <sup>[5]</sup>
                         <aside class="notes">
@@ -115,7 +108,7 @@
                     <section data-markdown>
                         <textarea data-template>
                             ### Und weil es einfach gut aussieht!
-                            ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
+                            ![selfportrait](assets/img/selfportrait.jpg) ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
                             <sup>[6]</sup>
                         </textarea>
                     </section>
@@ -229,30 +222,6 @@
                         <h4>2. Fall - durch den neuen Knoten enstehen keine encroached subsegments</h4>
                         <!-- TODO Linienstärken bei allen Grafiken konsistent-->
                         <div class="ggb" id="vkQTJpFb"></div>
-                    </section>
-                    <section>
-                        <h3>Wieso in dieser Reihenfolge?</h3>
-                    </section>
-                    <section>
-                        <p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
-                        <div class="ggb" id="NS2jCyfX"></div>
-                        <aside class="notes" data-markdown>
-                            **Annahme**
-                            Alle Kanten des Dreiecks sind Subsegmente!! (segmentgebunden)
-
-                            **Vorraussetzungen:**
-                            - Triangulation ist segement-gebunden
-                            - keine encroached subsegments mehr
-                            - v liegt innerhalb von t
-                            - Schwerpunkt c immer innerhalb
-
-                            **Widerspruchsbeweis:**
-                            - V liegt ausserhalb
-                            - cv muss segment s schneiden
-                            - Teil des Umkreises von t auf selber seite von c wie s muss im Durchmesserkreis von s liegen
-                            - es können aber nur max. 2 Punkte von t (Endpunkte von s) auf dem Druchmesserkreis von s liegen.
-                            - mind. 1 Punkt liegt also im Durchmesserkreis -> **Widerspruch - keine encroached subsegments**
-                        </aside>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
@@ -394,16 +363,14 @@
                             Formel logisch durchgehen
                         </aside>
                     </section>
-                    <!--TODO hier noch freie knoten mit segment elternknoten ggb?-->
                     <section>
                         <h4>Segment Kinderknoten mit freien Elternknoten</h4>
                         <img src="assets/img/ruppert/flow-free2segment.png">
                         <sup>[7]</sup>
                     </section>
                     <section>
-                        <!--TODO woher kommt 1/sqrt(2)?-->
                         <h4>Segment Knoten aufgrund verworfener Elternknoten</h4>
-                        <p><span>\( r_p = cos(\alpha) * 2r_v\)</span><span style="padding-left: 20px;">\( cos(45°) = \frac{\sqrt{2}}{2} \)</span></p>
+                        <p><span>\( r_p = cos(\alpha) * 2r_v\)</span><span style="padding-left: 100px;">\( cos(45°) = \frac{\sqrt{2}}{2} \)</span></p>
                         <p>\( r_v \ge \frac{r_p}{2cos(\alpha)} \ge \frac{1}{\sqrt(2)} * rp \)</p>
                         <div class="ggb" id="asjMqdrG"></div>
                         <aside class="notes" data-markdown>
@@ -445,8 +412,8 @@
 	                             ### Was ist mit Kindern von Input Knoten?
 	                         </textarea>
 	                     </section>
+                    <!--
 	                     <section>
-	 											<!--TODO weglassen, und nur einen (zweiten) Fall bschreiben oder ggb lfs fixen!?-->
 	                         <h4>freie Kinderknoten von Input-Knoten</h4>
 	                         <p>\( r_v \ge lfs(v) \)</p>
 	                         <div class="ggb" id="H6yqzYD4"></div>
@@ -458,6 +425,7 @@
 	                             **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
 	                         </aside>
 	                     </section>
+	                     -->
 	                     <section>
 	                         <h4>Segment Kinderknoten mit</h4>
 	                         <ul>
@@ -700,8 +668,6 @@
                         <textarea data-template>
                             #### Zusammenfassung
                             Die Algorithmen von Ruppert und Chew gehören zu den etabliertesten Verfahren der Delaunay Triangulation
-
-                            **Vorraussetzung:** im PSLG tritt kein Winkel
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -754,6 +720,36 @@
 					<canvas class="center-block" width="900" height="800"></canvas>
                     <sup>[1]</sup>
 				</section>
+                <section>
+                    <section>
+                        ## Outtakes
+                    </section>
+
+                    <section>
+                        <h3>Wieso in dieser Reihenfolge?</h3>
+                    </section>
+                    <section>
+                        <p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
+                        <div class="ggb" id="NS2jCyfX"></div>
+                        <aside class="notes" data-markdown>
+                            **Annahme**
+                            Alle Kanten des Dreiecks sind Subsegmente!! (segmentgebunden)
+
+                            **Vorraussetzungen:**
+                            - Triangulation ist segement-gebunden
+                            - keine encroached subsegments mehr
+                            - v liegt innerhalb von t
+                            - Schwerpunkt c immer innerhalb
+
+                            **Widerspruchsbeweis:**
+                            - V liegt ausserhalb
+                            - cv muss segment s schneiden
+                            - Teil des Umkreises von t auf selber seite von c wie s muss im Durchmesserkreis von s liegen
+                            - es können aber nur max. 2 Punkte von t (Endpunkte von s) auf dem Druchmesserkreis von s liegen.
+                            - mind. 1 Punkt liegt also im Durchmesserkreis -> **Widerspruch - keine encroached subsegments**
+                        </aside>
+                    </section>
+                </section>
 			</div>
 		</div>
 
