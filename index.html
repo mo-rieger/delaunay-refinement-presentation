@@ -360,36 +360,7 @@
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ### Was ist mit Kindern von Input Knoten?
-                        </textarea>
-                    </section>
-                    <section>
-                        <h4>freie Kinderknoten von Input-Knoten</h4>
-                        <p>\( r_v \ge lfs(v) \)</p>
-                        <div class="ggb" id="H6yqzYD4"></div>
-                        <aside class="notes" data-markdown>
-                            v ist umkreismittelpunkt von skinny triangle
-                            #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
-                            - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
-                            - es sei denn, die lfs des kinds ist noch kleiner
-                            **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
-                        </aside>
-                    </section>
-                    <section>
-                        <h4>Segment Kinderknoten mit</h4>
-                        <ul>
-                            <li>Input Elternknoten</li>
-                            <li>oder einem Knoten der nicht inzident zu s ist</li>
-                        </ul>
-                        <p>\( r_v \ge lfs(v) \)</p>
-                        <div class="ggb" id="s5uAXEVh"></div>
-                        <aside class="notes" data-markdown>
-                            lfs ist immer kleiner gleich als rv bewege punkt p innerhalb des Durchmesserkreises
-                        </aside>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### Woher kommen die anderen Werte?
+                            ### Woher kommen diese Werte?
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -429,12 +400,6 @@
                         </aside>
                     </section>
                     <section>
-                        Diese Betrachtungen sind ausreichend um die Terminierung bei Graphen deren kleinster Winkel \( \ge 90° \) ist zu beweisen.
-                    </section>
-                    <section>
-                        Da wir aber Graphen mit kleinsten Winkeln \( \ge 60° \) unterstützen, müssen wir noch weitere Fälle untersuchen.
-                    </section>
-                    <section>
                         <h4>Segment Kinderknoten mit Segment Elternknoten</h4>
                         <img src="assets/img/ruppert/flow-segment2segment.png">
                         <sup>[7]</sup>
@@ -463,6 +428,36 @@
                         </aside>
                     </section>
                        -->
+											 <section data-markdown>
+	                         <textarea data-template>
+	                             ### Was ist mit Kindern von Input Knoten?
+	                         </textarea>
+	                     </section>
+	                     <section>
+	 											<!--TODO weglassen, und nur einen (zweiten) Fall bschreiben oder ggb lfs fixen!?-->
+	                         <h4>freie Kinderknoten von Input-Knoten</h4>
+	                         <p>\( r_v \ge lfs(v) \)</p>
+	                         <div class="ggb" id="H6yqzYD4"></div>
+	                         <aside class="notes" data-markdown>
+	                             v ist umkreismittelpunkt von skinny triangle
+	                             #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
+	                             - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
+	                             - es sei denn, die lfs des kinds ist noch kleiner
+	                             **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
+	                         </aside>
+	                     </section>
+	                     <section>
+	                         <h4>Segment Kinderknoten mit</h4>
+	                         <ul>
+	                             <li>Input Elternknoten</li>
+	                             <li>oder einem Knoten der nicht inzident zu s ist</li>
+	                         </ul>
+	                         <p>\( r_v \ge lfs(v) \)</p>
+	                         <div class="ggb" id="s5uAXEVh"></div>
+	                         <aside class="notes" data-markdown>
+	                             lfs ist immer kleiner gleich als rv bewege punkt p innerhalb des Durchmesserkreises
+	                         </aside>
+	                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### Was bedeutet das alles?
