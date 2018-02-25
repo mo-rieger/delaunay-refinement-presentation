@@ -55,8 +55,9 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-# Mac OSX files
-*/.DS_Store
+ Mac OSX files
+**/.DS_Store
+.DS_Store
 
 #Intelli J Webstorm files
 .idea/
