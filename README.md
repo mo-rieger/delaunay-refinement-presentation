@@ -5,6 +5,9 @@ Held at the University of Hagen on 23.02.2018.
 
 ## [go to presentation](https://peterorlowsky.github.io/delaunay-refinement-presentation/) (german only)
 
+## [Our Paper](delaunay-refinement-ruppert-chew.pdf) (german only)
+is based on [JR. Shewchucks Paper](http://www.cs.cmu.edu/~quake/triangle.html) which I highly reccommend to read for further informations about delaunay refinement.
+ 
 ### Getting Started
 - Slides
     - for vertical slides just interlace the sections in the index.html
@@ -17,6 +20,8 @@ Held at the University of Hagen on 23.02.2018.
     - for more instructions read the comments inside the code
 - LaTeX
     - check [MathJax](https://www.mathjax.org/)
+:q
+:qw
     `\( B = \sqrt{2}\)`
 
 Algorithms for the triangulation animation from [mkacz91 on github](https://github.com/mkacz91/Triangulations).
