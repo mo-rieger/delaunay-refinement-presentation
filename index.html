@@ -34,6 +34,13 @@
 			.ggb{
 				display: inline-block;
 			}
+            img{
+                max-height: 450px !important;
+            }
+            .source {
+                font-size: 0.5em !important;
+                padding-left: 50px !important;
+            }
 		</style>
 	</head>
 	<body>
@@ -41,7 +48,7 @@
 			<div class="slides">
 				<section data-markdown>
 					<textarea data-template>
-						# Delaunay Refinement
+						# Delaunay Verfeinerung
 
 						Christian Weber, Moritz Rieger
 
@@ -50,10 +57,11 @@
 					</textarea>
 				</section>
                 <section id="key" data-state="key">
-                    <h2>Delaunay Refinement</h2>
+                    <h2>Delaunay Verfeinerung</h2>
                     <canvas class="center-block" width="900" height="500"></canvas>
+                    <sup>[1]</sup>
                     <div>
-                        <a onclick="refineKey(true)">start refinement</a>
+                        <a onclick="refineKey(true)">Verfeinerung starten</a>
                     </div>
                 </section>
                 <section data-markdown>
@@ -62,9 +70,9 @@
 						 - Wofür braucht man Delaunay Graphen?
 						 - Was ist ein Delaunay Graph?
 						 - Grundbegriffe
-						 - Rupperts Refinement Algorithmus
-						 - Chews Refinement Algorithmus
-						 - Ausblick
+						 - Rupperts Verfeinerungsalgorithmus
+						 - Chews Verfeinerungsalgorithmus
+						 - Zusammenfassung und Ausblick
 					</textarea>
                 </section>
 
@@ -77,28 +85,20 @@
                     </section>
                     <section>
                         <h3>Finite Elemente Methode</h3>
-                        <img src="assets/img/fem-pump.png" style="height: 600px;">
-                        <p class="source">https://upload.wikimedia.org/wikipedia/commons/c/cd/Elmer-pump-heatequation.png</p>
-                            <aside class="notes" data-markdown>
-                            <!-- TODO mehr infos zu FEM in den speaker notes-->
-                            Nähere Infos zu FEM
-                            </aside>
+                        <img src="assets/img/fem-pump.png">
+                        <sup>[2]</sup>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ### 3D CG
+                            ### 3D Computer Grafik
                             ![http://www.cs.mun.ca/~omeruvia/philosophy/WireframeBunny.html](assets/img/BunnyWire.gif)
-                        </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### CG - Terrain Generation
-                            ![https://straypixels.net/delaunay-triangulation-terrain](https://straypixels.net/assets/voronoi/island-small.png)
+                            <sup>[3]</sup>
                         </textarea>
                     </section>
                     <section>
-                        <h3>Face tracking</h3>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                        <h3>Gesichtserkennung</h3>
+                        <iframe width="840" height="560" src="https://www.youtube.com/embed/Zes2LivGozI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                        <sup>[5]</sup>
                         <aside class="notes">
                             Kann auch zur Gesichtserkennung verwendet werden.
                             Histogramm über die Flächen der Dreiecke zum abgleich.
@@ -108,7 +108,8 @@
                     <section data-markdown>
                         <textarea data-template>
                             ### Und weil es einfach gut aussieht!
-                            ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
+                            ![selfportrait](assets/img/selfportrait.jpg) ![http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twigs](http://78.media.tumblr.com/69f752d6a0ff4d679fa25356aeb60a9b/tumblr_naxomdFoPP1qe0j80o1_500.gif)
+                            <sup>[6]</sup>
                         </textarea>
                     </section>
                 </section>
@@ -130,13 +131,19 @@
                             - in einer Ebene
 
                             ![PSLG aus 1](assets/img/pslg-segments.png)
+                            <sup>[7]</sup>
                         </textarea>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### PSLG triangulieren
                             ![PSLG aus 1](assets/img/pslg-segments.png) ![PSLG aus 1](assets/img/pslg-subsegments.png)
+                            <sup>[7]</sup>
                         </textarea>
+                    </section>
+                    <section>
+                        <h6>Sichtbarkeit im PSLG</h6>
+                        <div class="ggb" id="sdqkCncf"></div>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
@@ -144,11 +151,12 @@
                         </textarea>
                     </section>
                     <section>
-                        <h3>Umkreisbedinung</h3>
+                        <h3>Delaunay Triangulation</h3>
+                        <h5>Umkreisbedingung</h5>
                         <div class="ggb" id="GpjaA7B9"></div>
                     </section>
                     <section>
-                        <h3>Constrained Delaunay</h3>
+                        <h3>Constrained Delaunay Triangulation</h3>
                         <!--TODO @chris sichtbarkeit von Punkten erklären!-->
                         <div class="ggb" id="qKBrMvjR"></div>
                     </section>
@@ -179,7 +187,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Rupperts Refinement Algorithmus
+                            ## Rupperts Verfeinerungsalgorithmus
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -215,30 +223,6 @@
                         <h4>2. Fall - durch den neuen Knoten enstehen keine encroached subsegments</h4>
                         <!-- TODO Linienstärken bei allen Grafiken konsistent-->
                         <div class="ggb" id="vkQTJpFb"></div>
-                    </section>
-                    <section>
-                        <h3>Wieso in dieser Reihenfolge?</h3>
-                    </section>
-                    <section>
-                        <p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
-                        <div class="ggb" id="NS2jCyfX"></div>
-                        <aside class="notes" data-markdown>
-                            **Annahme**
-                            Alle Kanten des Dreiecks sind Subsegmente!! (segmentgebunden)
-
-                            **Vorraussetzungen:**
-                            - Triangulation ist segement-gebunden
-                            - keine encroached subsegments mehr
-                            - v liegt innerhalb von t
-                            - Schwerpunkt c immer innerhalb
-
-                            **Widerspruchsbeweis:**
-                            - V liegt ausserhalb
-                            - cv muss segment s schneiden
-                            - Teil des Umkreises von t auf selber seite von c wie s muss im Durchmesserkreis von s liegen
-                            - es können aber nur max. 2 Punkte von t (Endpunkte von s) auf dem Druchmesserkreis von s liegen.
-                            - mind. 1 Punkt liegt also im Durchmesserkreis -> **Widerspruch - keine encroached subsegments**
-                        </aside>
                     </section>
                     <section data-markdown>
                         <textarea data-template>
@@ -296,6 +280,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>Eingabeknoten (PSLG)</h4>
                         <img src="assets/img/ruppert/insertion-radius-1.png">
+                        <sup>[7]</sup>
                         <aside class="notes" data-markdown>
                             kürzeste Distanz zum nächsten Input Knoten
                         </aside>
@@ -304,6 +289,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>Segmentknoten (encroached subsegment)</h4>
                         <img src="assets/img/ruppert/insertion-radius-2.png">
+                        <sup>[7]</sup>
                         <aside class="notes">
                             Distanz zum nächsten verursachenden knoten
                         </aside>
@@ -312,6 +298,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>verworfene Knoten (skinny triangle)</h4>
                         <img src="assets/img/ruppert/insertion-radius-3.png">
+                        <sup>[7]</sup>
                         <aside class="notes">
                             Da Verursacher nichtmehr vorhanden rv ist Länge eines entstandenen Subsegments
                         </aside>
@@ -320,6 +307,7 @@
                         <h3>Einfügeradius</h3>
                         <h4>freie Knoten (skinny triangle)</h4>
                         <img src="assets/img/ruppert/insertion-radius-4.png">
+                        <sup>[7]</sup>
                         <aside class="notes">
                            Umkreis des skinny triangles aufgrunddessen v eingefügt wurde
                         </aside>
@@ -328,6 +316,7 @@
                         <h3>Elternknoten</h3>
                         <h4>beschreiben Herkunft eines Knotens</h4>
                         <img src="assets/img/ruppert/rup-parent-vertices.png">
+                        <sup>[7]</sup>
                         <aside class="notes" data-markdown>
                             - input knoten -> haben keinen Elternknoten
                             - segment Knoten -> p(v) verursachender Knoten
@@ -338,6 +327,7 @@
                     <section>
                         <h4>Änderung des Einfügeradius bei Kinderknoten</h4>
                         <img src="assets/img/ruppert/rup-flowchart.png">
+                        <sup>[7]</sup>
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{2}\)</li>
@@ -351,36 +341,7 @@
                     </section>
                     <section data-markdown>
                         <textarea data-template>
-                            ### Was ist mit Kindern von Input Knoten?
-                        </textarea>
-                    </section>
-                    <section>
-                        <h4>freie Kinderknoten von Input-Knoten</h4>
-                        <p>\( r_v \ge lfs(v) \)</p>
-                        <div class="ggb" id="H6yqzYD4"></div>
-                        <aside class="notes" data-markdown>
-                            v ist umkreismittelpunkt von skinny triangle
-                            #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
-                            - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
-                            - es sei denn, die lfs des kinds ist noch kleiner
-                            **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
-                        </aside>
-                    </section>
-                    <section>
-                        <h4>Segment Kinderknoten mit</h4>
-                        <ul>
-                            <li>Input Elternknoten</li>
-                            <li>oder einem Knoten der nicht inzident zu s ist</li>
-                        </ul>
-                        <p>\( r_v \ge lfs(v) \)</p>
-                        <div class="ggb" id="s5uAXEVh"></div>
-                        <aside class="notes" data-markdown>
-                            lfs ist immer kleiner gleich als rv bewege punkt p innerhalb des Durchmesserkreises
-                        </aside>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ### Woher kommen die anderen Werte?
+                            ### Woher kommen diese Werte?
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -391,6 +352,7 @@
                     <section>
                         <h4>freie Kinderknoten</h4>
                         <img src="assets/img/ruppert/flow-free-vertices.png">
+                        <sup>[7]</sup>
                     </section>
                     <section>
                         <h4>freie Kinderknoten</h4>
@@ -402,30 +364,25 @@
                             Formel logisch durchgehen
                         </aside>
                     </section>
-                    <!--TODO hier noch freie knoten mit segment elternknoten ggb?-->
                     <section>
                         <h4>Segment Kinderknoten mit freien Elternknoten</h4>
                         <img src="assets/img/ruppert/flow-free2segment.png">
+                        <sup>[7]</sup>
                     </section>
                     <section>
-                        <!--TODO woher kommt 1/sqrt(2)?-->
                         <h4>Segment Knoten aufgrund verworfener Elternknoten</h4>
-                        <p>\( r_v \ge \frac{1}{\sqrt(2)} * rp \)</p>
-                        <div class="ggb" id="a7zr7JDf"></div>
+                        <p><span>\( r_p = cos(\alpha) * 2r_v\)</span><span style="padding-left: 100px;">\( cos(45°) = \frac{\sqrt{2}}{2} \)</span></p>
+                        <p>\( r_v \ge \frac{r_p}{2cos(\alpha)} \ge \frac{1}{\sqrt(2)} * rp \)</p>
+                        <div class="ggb" id="asjMqdrG"></div>
                         <aside class="notes" data-markdown>
                             P wurde aufgrund eines skinny triangles t eingefügt
                             Da der PSLG constrained delaunay ist, müssen die endpunkte von s außerhalb des Umkreises von t liegen.
                         </aside>
                     </section>
                     <section>
-                        Diese Betrachtungen sind ausreichend um die Terminierung bei Graphen deren kleinster Winkel \( \ge 90° \) ist zu beweisen.
-                    </section>
-                    <section>
-                        Da wir aber Graphen mit kleinsten Winkeln \( \ge 60° \) unterstützen, müssen wir noch weitere Fälle untersuchen.
-                    </section>
-                    <section>
                         <h4>Segment Kinderknoten mit Segment Elternknoten</h4>
                         <img src="assets/img/ruppert/flow-segment2segment.png">
+                        <sup>[7]</sup>
                     </section>
                     <section>
                         <h4>Kindknoten von Segment Knoten</h4>
@@ -451,6 +408,37 @@
                         </aside>
                     </section>
                        -->
+											 <section data-markdown>
+	                         <textarea data-template>
+	                             ### Was ist mit Kindern von Input Knoten?
+	                         </textarea>
+	                     </section>
+                    <!--
+	                     <section>
+	                         <h4>freie Kinderknoten von Input-Knoten</h4>
+	                         <p>\( r_v \ge lfs(v) \)</p>
+	                         <div class="ggb" id="H6yqzYD4"></div>
+	                         <aside class="notes" data-markdown>
+	                             v ist umkreismittelpunkt von skinny triangle
+	                             #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
+	                             - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
+	                             - es sei denn, die lfs des kinds ist noch kleiner
+	                             **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
+	                         </aside>
+	                     </section>
+	                     -->
+	                     <section>
+	                         <h4>Segment Kinderknoten mit</h4>
+	                         <ul>
+	                             <li>Input Elternknoten</li>
+	                             <li>oder einem Knoten der nicht inzident zu s ist</li>
+	                         </ul>
+	                         <p>\( r_v \ge lfs(v) \)</p>
+	                         <div class="ggb" id="s5uAXEVh"></div>
+	                         <aside class="notes" data-markdown>
+	                             lfs ist immer kleiner gleich als rv bewege punkt p innerhalb des Durchmesserkreises
+	                         </aside>
+	                     </section>
                     <section data-markdown>
                         <textarea data-template>
                             ### Was bedeutet das alles?
@@ -493,42 +481,276 @@
                     <section data-markdown>
                         <textarea data-template>
                             ### Vorteile gegeüber Rupperts Algorithmus:
-                            - garantierter Mindestwinkel steigt von **20,7°** auf **26,5°**
-                            - unter gegebenen Umständen werden weniger Dreiecke erzeugt
+                            garantierter Mindestwinkel steigt von **20,7°** auf **26,5°**
 
-                            &#8658 insgesamt höhere Vernetzungsqualität
+                            &#8658 gleichmäßigere Dreiecke
+                            <div class="ggb" id="sbV9FKTj"></div>
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Vorteile gegenüber Rupperts Algorithmus:
+                            es werden unter gegebenen Vorraussetzungen deutlich weniger Dreiecke erzeugt
+
+                            &#8658 insgesamt höhere Triangulationsqualität
+                            <img src="assets/img/chew/num_segment_splits.png">
+                            <sup>[7]</sup>
+
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Nachteil gegenüber Rupperts Algorithmus:
+
+                            es wird nur eine Constrained Delauay Triangulation garantiert
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Input
+
+                            Constrained Delaunay Graph
                         </textarea>
                     </section>
                     <section>
-                        <h4>Input:</h4>
-                        Constrained Delaunay Graph
-                        <br>
-                        </br>
-                        <h5>Voraussetzungen für den Algorithmus:</h5>
+                        <div>
+                            <h4>Ablauf</h4>
+                            <s>1. Teile encroached subsegments</s>
+                            <br>1. Skinny triangles entfernen</br>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h5>Entferne skinny triangles</h5>
+                            <h7><b>1. Fall:</b> Normales Vorgehen</h7>
+                        </div>
+                        <div class="ggb" id="ruWnqPhf"></div>
+                    </section>
+                    <section>
+                        <div>
+                            <h5>Entferne skinny triangles</h5>
+                            <p><b>2. Fall:</b> ein oder mehrere Subsegmente befinden sich zwischen dem skinny </br> triangle und dem Umkreismittelpunkt</p>
+                        </div>
+                        <div class="ggb" id="ZUPQBh9U"></div>
+                        <p>Alle freien Knoten innerhalb des Durchmesserkreis werden entfernt</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Terminierungsbeweis
+
+                            Der Beweis kann genauso wie der für Rupperts Algorithmus geführt werden
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Idee
+                            Zeigen, dass eine untere Schranke für die Länge neuer Kanten existiert.
+                        </textarea>
+                    </section>
+                    <section>
+                        <h4>Eine Termininierung ist nur unter diesen Bedingungen garantiert:</h4>
+                        <div>
+                            <ul>
+                                <li>Schranke \( B \ge \sqrt{5}/2=1.12\)</li>
+                                <li>kein Winkel \( \alpha \le 60 \)°</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Änderung des Einfügeradius bei Kinderknoten</h4>
+                        <img src="assets/img/chew/flow-chew.png">
+                        <sup>[7]</sup>
                         <div>
                             <ul>
                                 <li>Schranke \( B \ge \sqrt{5}/2\)</li>
                                 <li>kein Winkel \( \alpha \le 60 \)°</li>
                             </ul>
                         </div>
-                        <div class="ggb" id="v5w64QaX"></div>
                     </section>
                     <section>
-                        <div>
-                            <h4>Ablauf</h4>
-                            <s>1. Teile encroached subsegments</s>
-                            <br>1. Entferne skinny triangles</br>
-                        </div>
-                        <div class="ggb" id="ruWnqPhf"></div>
+                        <h4>freie Kinderknoten</h4>
+                        <img src="assets/img/chew/flow-chew-2free.png">
+                        <sup>[7]</sup>
+                    </section>
+                    <!-- TODO ggb applet machen -->
+                    <section>
+                        <h4>freie Kinderknoten</h4>
+                        <p>\( B = \frac{Umkreisradius}{kürzeste Kante} = \frac{r_v}{r_p} \ge \sqrt{5}/2\)</p>
+                        <p>\(r_v \ge B*r_p\)</p>
+                        <div class="ggb" id="xW7jTZTy"></div>
+                        <aside class="notes">
+                            p ist Elternknoten
+                            Formel logisch durchgehen
+                        </aside>
                     </section>
                     <section>
-                        <p>Wenn ein oder mehrere Subsegmente zwischen dem skinny triangle und dem Umkreismittekpunkt liegen:</p>
-                        <div class="ggb" id="ZUPQBh9U"></div>
+                        <h4>Segment Kinderknoten mit freien Elternknoten</h4>
+                        <img src="assets/img/chew/flow-chew-free2seg.png">
+                        <sup>[7]</sup>
+                    </section>
+                    <section>
+                        <h4>Segment Kinderknoten mit freien Elternknoten</h4>
+                        <p>\(\theta = 26.5° = \arcsin \frac{1}{2B} \)</p>
+                        <div class="ggb" id="B2MGBsYS"></div>
+                    </section>
+                    <section>
+                        <h4>Segment Kinderknoten mit Segment Elternknoten</h4>
+                        <img src="assets/img/chew/flow-chew-seg2seg.png">
+                        <sup>[7]</sup>
+                    </section>
+                    <section>
+                        <h4>Kindknoten von Segment Knoten</h4>
+                        <p>p und v auf inzidenten Segmenten \( 45° \le \alpha < 90° \) </p>
+                        <p>\( r_v > \frac{r_p}{2\cos{\alpha}} \)</p>
+                        <div class="ggb" id="AY5wy4JR"></div>
+                        <aside class="notes" data-markdown>
+                            s is encroached by p
+                            Winkel s, rp is fix
+                            rp/rv wird dann am kleinsten, wenn p auf dem Durchmesserkreis von s liegt
+                            basic Trigonometry s = rp / cos(alpha) -> rv ist halb so groß! rp/2 cos(alpha)
+                        </aside>
+                    </section>
+                    <section>
+                        <h4>freie Kinderknoten von Input-Knoten</h4>
+                        <p>\( r_v \ge lfs(v) \)</p>
+                        <div class="ggb" id="qxaCDXHJ"></div>
+                        <aside class="notes" data-markdown>
+                            v ist umkreismittelpunkt von skinny triangle
+                            #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
+                            - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
+                            - es sei denn, die lfs des kinds ist noch kleiner
+                            **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
+                        </aside>
+                    </section>
+                    <section>
+                        <h4>Segment Kinderknoten von Input Elternknoten</h4>
+                        <p>\( r_v \ge lfs(v) \)</p>
+                        <div class="ggb" id="MTfRrh2v"></div>
+                        <aside class="notes" data-markdown>
+                            v ist umkreismittelpunkt von skinny triangle
+                            #### r_p bei input ist kürzeste Distanz zum nächsten Knoten
+                            - kein kinds eines Mesh-Knotens hat einen Einfügeradius, der kleiner ist als der eigene Einfügungsradius
+                            - es sei denn, die lfs des kinds ist noch kleiner
+                            **Daher wird niemals eine Kante erscheinen, die kürzer ist als die kleinste lfs im PSLG**
+                        </aside>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Es gilt also die gleiche Schlussfolgerung wie schon bei Rupperts Algorithmus
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            - Einfügeradien von Kindknoten können nicht immer kleiner werden, als die der Eltern.
+                            - Außer die local feature size des Kindknotens ist kleiner.
+
+                            &#8658 untere Grenze für neue Kanten ist die kleinste lfs im PSLG!
+                        </textarea>
                     </section>
                 </section>
+
+                <!-- Zusammenfassung -->
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Zusammenfassung und Ausblick
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Zusammenfassung
+                            Delaunay Triangulationen sind für viele Anwendungen von großer Bedeutung:
+                            - Finite Elemente Methoden
+                            - Computer Grafik
+                            - Tracking
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Zusammenfassung
+                            Die Algorithmen von Ruppert und Chew gehören zu den etabliertesten Verfahren der Delaunay Triangulation
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Zusammenfassung
+                            Durch das Entfernen von Knoten aus der Triangulation schafft Chew eine Verbesserung des Mindestwinkels von **20,7°** auf **26,5°**
+                            und zerteilt dabei weniger Segmente
+
+                            **&#8658 bessere Triangulationsqualität**
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Ausblick
+                            In der Praxis stellen kleine Winkel ein großes Problem für hochwertige Triangulationen dar
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            #### Ausblick
+                            **Shewchuk JR.** stellt in seinem Paper
+
+                            **Delaunay Refinement Algorithms for Triangular Mesh Generation**
+
+                            Methoden vor wie man mit kleinen Winkeln umgehen kann
+
+                            &#8658 diese setzt er in seinem **Terminator** Algorithmus um und erreicht einen garantierten Mindestwinkel von **30°**
+                        </textarea>
+                    </section>
+
+                </section>
+
+                <!-- Quellen -->
+                <section>
+                            <h2>Quellen</h2>
+                    <div class="sources">
+                            <p style="text-align:left" class="source">[1] https://github.com/mkacz91/Triangulations - Triangulations Algorithmus</p>
+                            <p style="text-align:left" class="source">[2] https://upload.wikimedia.org/wikipedia/commons/c/cd/Elmer-pump-heatequation.png
+                                <br> - FEM Modell einer Wärmepumpe</br></p>
+                            <p style="text-align:left" class="source">[3] http://www.cs.mun.ca/~omeruvia/philosophy/WireframeBunny.html - 3D Bunny</p>
+                            <p style="text-align:left" class="source">[4] https://straypixels.net/delaunay-triangulation-terrain - Terrain Generation</p>
+                            <p style="text-align:left" class="source">[5] https://www.youtube.com/embed/Zes2LivGozI?rel=0 - Face Tracking</p>
+                            <p style="text-align:left" class="source">[6] http://hendrix.glitchartistscollective.com/post/95855206421/fifty-frames-of-twig - Art</p>
+                            <p style="text-align:left" class="source">[7] Shewchuk JR. Delaunay Refinement Algorithms for Triangular Mesh Generation.
+                                <br> - Computational Geometry. 2002;22:21–74.</br></p>
+                    </div>
+                </section>
+
 				<section id="ty" data-state="ty">
 					<canvas class="center-block" width="900" height="800"></canvas>
+                    <sup>[1]</sup>
 				</section>
+                <section>
+                    <section>
+                        ## Outtakes
+                    </section>
+
+                    <section>
+                        <h3>Wieso in dieser Reihenfolge?</h3>
+                    </section>
+                    <section>
+                        <p>Wenn keine encroached subsegments vorhanden sind, liegen neue Knoten immer innerhalb des Graphen</p>
+                        <div class="ggb" id="NS2jCyfX"></div>
+                        <aside class="notes" data-markdown>
+                            **Annahme**
+                            Alle Kanten des Dreiecks sind Subsegmente!! (segmentgebunden)
+
+                            **Vorraussetzungen:**
+                            - Triangulation ist segement-gebunden
+                            - keine encroached subsegments mehr
+                            - v liegt innerhalb von t
+                            - Schwerpunkt c immer innerhalb
+
+                            **Widerspruchsbeweis:**
+                            - V liegt ausserhalb
+                            - cv muss segment s schneiden
+                            - Teil des Umkreises von t auf selber seite von c wie s muss im Durchmesserkreis von s liegen
+                            - es können aber nur max. 2 Punkte von t (Endpunkte von s) auf dem Druchmesserkreis von s liegen.
+                            - mind. 1 Punkt liegt also im Durchmesserkreis -> **Widerspruch - keine encroached subsegments**
+                        </aside>
+                    </section>
+                </section>
 			</div>
 		</div>
 

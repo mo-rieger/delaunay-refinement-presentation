@@ -12,19 +12,27 @@ ggbMaterial = [
     'NS2jCyfX',
     'fTUzuQZh',
     `H6yqzYD4`, //'DKSpnBf7',
-    'a7zr7JDf',
+    //'a7zr7JDf',
+    'QFJFVSXu',
     's5uAXEVh',
-    'a7zr7JDf',
+    'asjMqdrG',//a7zr7JDf
     'CD56Amyj',
     'z5VVcUMA',
-    'QFJFVSXu',
+    'qxaCDXHJ',
     'qKBrMvjR',
     'GpjaA7B9',
     'vkQTJpFb',
     'uH2qBG2X',
     'ruWnqPhf',
     'ZUPQBh9U',
-    'v5w64QaX' // Schranke B Umkreisradius / kürzeste Kante
+    'v5w64QaX', // Schranke B Umkreisradius / kürzeste Kante
+    'sbV9FKTj',
+    'MTfRrh2v',
+    'SBY3FQUK',
+    'sdqkCncf',
+    'xW7jTZTy',
+    'AY5wy4JR',
+    'B2MGBsYS'
 ]
 ggbApps = ggbMaterial.map((matId) => {
     return new GGBApplet({material_id: matId, borderColor:"#fff", width: 960, height: 600}, true);
